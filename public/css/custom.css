@@ -1,0 +1,515 @@
+.advanced-form-filter-wrapper {
+  padding: 0.2rem 1rem;
+}
+
+.terminal-type-margin {
+  margin-bottom: 6.2rem;
+}
+
+.btn-copy {
+  background-color: #cfd8dc;
+}
+
+.btn-ms-excel {
+  background-color: #107c41;
+  color: white;
+}
+
+.btn-ms-excel:hover {
+  background-color: #0d5f2f;
+  color: white;
+}
+
+.btn-csv-file {
+  background-color: #21a366;
+  color: white;
+}
+
+.btn-csv-file:hover {
+  background-color: #1a7d4f;
+  color: white;
+}
+
+.btn-pdf-file {
+  background-color: #e53935;
+  color: white;
+}
+
+.btn-pdf-file:hover {
+  background-color: #b71c1c;
+  color: white;
+}
+
+.btn-transparent {
+  background-color: transparent;
+  color: #000000;
+  border: none;
+}
+
+@media only screen and (max-width: 480px) {
+  .terminal-type-margin {
+    margin-bottom: 0rem;
+  }
+}
+
+.animated {
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.fadeIn {
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.box {
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.box-children {
+  border-radius: 0.2rem;
+}
+
+.btn-pic-info {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+}
+
+.ticket-open {
+  background-color: #d81b60;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.ticket-close {
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.ticket-request {
+  background-color: #ff9800;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.ticket-rejected {
+  background-color: #f44336;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.ticket-dispatch {
+  background-color: #2196f3;
+  color: #fff;
+  border-radius: 0.3rem;
+  padding: 1rem 2rem;
+}
+
+.ticket-rejected-title,
+.ticket-close,
+.ticket-open,
+.ticket-request,
+ticket-dispatch {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.ticket-rejected-description {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+
+.form-label,
+.form-check-label {
+  font-weight: 600 !important;
+}
+
+.reject-escalation {
+  background-color: #d81b60;
+}
+
+.table-striped > tbody > tr:nth-child(2n + 1) > td,
+.table-striped > tbody > tr:nth-child(2n + 1) > th {
+  background-color: #f9f9f9 !important;
+}
+
+.text-gray {
+  color: #9e9e9e;
+}
+
+.font-data-table {
+  font-size: 11px !important;
+  /* padding: 0 .5rem !important; */
+}
+
+@media screen and (max-width: 1024px) {
+  li.paginate_button.previous {
+    display: inline;
+  }
+
+  li.paginate_button.next {
+    display: inline;
+  }
+
+  li.paginate_button {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  li.paginate_button.previous {
+    display: inline;
+  }
+
+  li.paginate_button.next {
+    display: inline;
+  }
+
+  li.paginate_button {
+    display: none;
+  }
+}
+
+.text-briview-login {
+  font-weight: 700;
+  /* font-size: 2.5rem !important; */
+}
+
+.text-briview-orange {
+  color: #e86000;
+  font-size: 1.8rem !important;
+  text-transform: lowercase !important;
+}
+
+.bg-bri {
+  /* background-color: #00539b; */
+  background-color: #ebf3ff;
+}
+
+.text-briview-blue {
+  color: #00539b;
+  font-size: 2.2rem !important;
+}
+
+.bri-logo {
+  max-width: 50%;
+  height: 100%;
+}
+
+.centered-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-error-login {
+  color: #ff0505;
+  font-weight: 500;
+}
+
+.bit-login-title {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+}
+
+.bit-login-title span{
+  color: #6b6d70;
+}
+
+.text-navbar-brand-bit{
+  font-size: 2.3rem !important;
+  font-weight: 700 !important;
+}
+
+.text-navbar-brand {
+  font-size: .8rem  !important;
+}
+
+
+/* .active {
+  background-color: #00539b !important;
+  color: #fff !important;
+} */
+
+.nav-tabs .active {
+  background-color: #00539b !important;
+  color: #fff !important;
+}
+
+.nav-tabs .nav-item {
+  font-weight: 400 !important;
+  color: #00539b;
+  font-weight: 600 !important;
+  border-bottom: 1px solid #00539b !important;
+}
+
+.status__mesin-detail {
+  cursor: pointer;
+}
+
+.amt-id-img,
+.vip-status-img {
+  max-width: 15%;
+}
+
+@media only screen and ((min-width: 768px) and (max-width:992px)) {
+  .amt-id-img {
+    max-width: 20%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .status__mesin-spacing {
+    margin-bottom: 1rem;
+  }
+}
+
+.status__mesin-height {
+  height: 4rem;
+  /* background-color: #21a366; */
+}
+
+.modal:nth-of-type(even) {
+  z-index: 1052 !important;
+  /* background-color: red !important; */
+}
+.modal-backdrop.show:nth-of-type(even) {
+  z-index: 1051 !important;
+  /* background-color: blue !important; */
+}
+
+.canva-style {
+  max-width: 100%;
+  height: 30rem;
+}
+
+.mt-th-table {
+  font-size: 0.75rem !important;
+}
+
+#manajementTicket-ssr-table tbody tr td {
+  font-size: 0.75rem !important;
+  /* align top */
+}
+
+#manajementTicket-ssr-table tbody tr td:nth-child(1) {
+  vertical-align: middle !important;
+}
+
+.gallery, .gallerys {
+  display: flex;
+  gap: 0.5rem;
+  width: 50%;
+}
+
+.gallery .remove-image, .gallerys .remove-image {
+  cursor: pointer;
+  background-color: #d81b60;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.gallery img, .gallerys img {
+
+  max-width: 30%;
+  height: 8rem;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.gallery img:hover, .gallerys img:hover {
+  cursor: pointer;
+  transform: scale(2) ;
+  z-index: 999;
+  /* zoom in animation */
+}
+
+.files-name {
+  font-size: 0.5rem;
+  font-weight: 500;
+}
+
+.attachment-ticket-image {
+    max-width: 100%;
+    height: 8rem;
+    object-fit: cover;
+}
+
+/*@media only screen and (max-width: 768px) {*/
+/*  .attachment-preview {*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*  }*/
+
+/*  .attachment-ticket-image{*/
+/*    max-width: 50%;*/
+/*    height: 8rem;*/
+/*    object-fit: cover;*/
+/*  }*/
+/*}*/
+
+.preview-image{
+  position: relative;
+  width: 100%;
+}
+
+.preview-image-overlay{
+  background-color: rgba(0, 0, 0, 0.11);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center ;
+}
+
+.fade-in{
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.preview-modal-image{
+  width: 100%;
+}
+
+.bg-reject{
+    background-color: #d81b60 !important;
+}
+
+.bg-vip{
+  /*background yelow*/
+  background-color: rgb(255, 234, 172) !important;
+  color: #000 !important;
+}
+
+.status-mesin-cash-low{
+  background-color: #FEB019;
+  height: 7rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.status-mesin-cash-out{
+  background-color: #dc2626;
+  height: 7rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  cursor: pointer;
+}
+.status-mesin-cash-full{
+  background-color: #ef4444;
+  height: 7rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  cursor: pointer;
+}
+
+.status-mesin-cash-low-number{
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.bg-cash-low{
+  background-color: #FEB019;
+  color: #000;
+}
+
+.bg-cash-out{
+  background-color: #dc2626;
+  color: #fff;
+}
+
+.bg-cash-full{
+  background-color: #ef4444;
+  color: #fff;
+}
+
+#statusMesinChart .apexcharts-canvas{
+  width: 100% !important;
+}
+
+.table-ticket-ssr td, .table-ticket-ssr th {
+  border: 0.01px solid #aeb2b6 !important; 
+}
+
+
+@media print {
+  .page-break {
+    page-break-before: always;
+  }
+}
+

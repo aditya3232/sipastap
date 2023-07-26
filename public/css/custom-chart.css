@@ -1,0 +1,20 @@
+.chart-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.chart-group div {
+  flex: 50%;
+}
+
+.chart-group div canvas {
+  width: 100% !important;
+  height: 500px !important;
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .chart-group div {
+    flex: 100%;
+  }
+}
