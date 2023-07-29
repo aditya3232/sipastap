@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert as Alert;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use PDOException;
 use Throwable;
+use Illuminate\Support\Facades\Auth;
 
 class RoleController extends Controller
 {
@@ -142,26 +143,31 @@ class RoleController extends Controller
     }
 
     public function select2Permissions(Request $request, $id) {
-        $search = $request->search;
-        
-        if($search) {
-            // SELECT 
+        // SELECT 
             //     p.id,
             //     p.name
             // from permissions p 
             // where p.id not in (select p.id from permissions p
             //                 join permission_role pr on pr.permission_id = p.id
             //                 where pr.role_id = 7)
-            $Permissions = Permission::select('permissions.id', 'permissions.name')
-                                        ->whereNotIn('permissions.id', function ($query) use ($id) {
-                                            $query->select('p.id')
-                                                ->from('permissions as p')
-                                                ->join('permission_role as pr', 'pr.permission_id', '=', 'p.id')
-                                                ->where('pr.role_id', $id);
-                                        })
-                                        ->where('permissions.name', 'LIKE',"%{$search}%")
-                                        ->limit(100)
-                                        ->get();
+            
+        $search = $request->search;
+            
+        if($search) {
+        
+        $Permissions = Permission::select('permissions.id', 'permissions.name')
+                                    ->whereNotIn('permissions.id', function ($query) use ($id) {
+                                        $query->select('p.id')
+                                            ->from('permissions as p')
+                                            ->join('permission_role as pr', 'pr.permission_id', '=', 'p.id')
+                                            ->where('pr.role_id', $id);
+                                    })
+                                    ->when(Auth::user()->role->id != 2, function ($query) {
+                                        $query->whereNotIn('permissions.id', ['15', '18']);
+                                    }) // jika yang login admin maka dapat menampilkan permission log & permission 
+                                    ->where('permissions.name', 'LIKE',"%{$search}%")
+                                    ->limit(100)
+                                    ->get();
         } else {
             $Permissions = Permission::select('permissions.id', 'permissions.name')
                                         ->whereNotIn('permissions.id', function ($query) use ($id) {
@@ -170,9 +176,15 @@ class RoleController extends Controller
                                                 ->join('permission_role as pr', 'pr.permission_id', '=', 'p.id')
                                                 ->where('pr.role_id', $id);
                                         })
+                                        ->when(Auth::user()->role->id != 2, function ($query) {
+                                        $query->whereNotIn('permissions.id', ['15', '18']);
+                                        })
                                         ->limit(100)
                                         ->get();
         }
+            
+
+        
 
         $response = array();
             foreach($Permissions as $Permission){
