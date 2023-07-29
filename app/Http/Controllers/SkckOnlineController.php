@@ -24,7 +24,7 @@ class SkckOnlineController extends Controller
     }
 
     public function create() {
-        return view('mazer_template.dilan_polres.form_skck.create');
+        return view('mazer_template.sipastap.form_skck.create');
     }
 
     public function store(Request $request) {
@@ -139,7 +139,7 @@ class SkckOnlineController extends Controller
 
         if($validator->fails()) {
             Alert::error('please validate the captcha, thanks !');
-            return redirect()->route('dilanpolres.daftarskck')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.daftarskck')->withErrors($validator->errors())->withInput();
         }
 
         // post data diri
@@ -262,7 +262,7 @@ class SkckOnlineController extends Controller
             'skck_daftar_pidanas_sejauhmana_proseshukumnya' => $request->input('skck_daftar_pidanas_sejauhmana_proseshukumnya'),
         ]);
             
-        return redirect()->route('dilanpolres.index')->alert()->success('SuccessAlert','Data Daftar Skck Online Berhasil Dikirim');;
+        return redirect()->route('sipastap.index')->alert()->success('SuccessAlert','Data Daftar Skck Online Berhasil Dikirim');;
     }
     
 
@@ -553,7 +553,7 @@ class SkckOnlineController extends Controller
 
         if($validator->fails()) {
             Alert::error('please validate the captcha, thanks !');
-            return redirect()->route('dilanpolres.daftarskck')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.daftarskck')->withErrors($validator->errors())->withInput();
         }
 
         // post data diri
@@ -676,7 +676,7 @@ class SkckOnlineController extends Controller
             'skck_daftar_pidanas_sejauhmana_proseshukumnya' => $request->input('skck_daftar_pidanas_sejauhmana_proseshukumnya'),
         ]);
             
-        return redirect()->route('dilanpolres.index')->alert()->success('SuccessAlert','Data Daftar Skck Online Berhasil Dikirim');;
+        return redirect()->route('sipastap.index')->alert()->success('SuccessAlert','Data Daftar Skck Online Berhasil Dikirim');;
     }
 
 }

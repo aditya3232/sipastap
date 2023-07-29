@@ -130,7 +130,7 @@ class FormSidikJariController extends Controller
         // contoh authorization di controller
         // $this->authorize('create', FormSidikJari::class);
         
-        return view('mazer_template.dilan_polres.form_sidik_jari.create');
+        return view('mazer_template.sipastap.form_sidik_jari.create');
     }
 
     public function store(Request $request) {
@@ -161,7 +161,7 @@ class FormSidikJariController extends Controller
 
         if($validator->fails()) {
             Alert::error('Cek kembali pengisian form, terima kasih !');
-            return redirect()->route('dilanpolres.formsidikjari.create')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.formsidikjari.create')->withErrors($validator->errors())->withInput();
         }
 
         try {
@@ -191,24 +191,24 @@ class FormSidikJariController extends Controller
     } catch (\Illuminate\Database\QueryException $e) {
         // Alert::error($e->getMessage());
         Alert::error('Gagal menyimpan!');
-        return redirect()->route('dilanpolres.formsidikjari.create');
+        return redirect()->route('sipastap.formsidikjari.create');
     } catch (ModelNotFoundException $e) {
         // Alert::error($e->getMessage());
         Alert::error('Gagal menyimpan!');
-        return redirect()->route('dilanpolres.formsidikjari.create');
+        return redirect()->route('sipastap.formsidikjari.create');
     } catch (\Exception $e) {
         Alert::error('Gagal menyimpan!');
-        return redirect()->route('dilanpolres.formsidikjari.create');
+        return redirect()->route('sipastap.formsidikjari.create');
     } catch (PDOException $e) {
         Alert::error('Gagal menyimpan!');
-        return redirect()->route('dilanpolres.formsidikjari.create');
+        return redirect()->route('sipastap.formsidikjari.create');
     } catch (Throwable $e) {
         Alert::error('Gagal menyimpan!');
-        return redirect()->route('dilanpolres.formsidikjari.create');
+        return redirect()->route('sipastap.formsidikjari.create');
     }
 
         Alert::success('Sukses', 'Formulir pendaftaran sidik jari berhasil ditambahkan.');
-        return redirect()->route('dilanpolres.index');
+        return redirect()->route('sipastap.index');
     }
 
     public function edit($id) {

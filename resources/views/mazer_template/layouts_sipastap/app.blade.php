@@ -26,14 +26,14 @@
 </head>
 
 <body>
-    @include('mazer_template.layouts_dilanpolres.header')
+    @include('mazer_template.layouts_sipastap.header')
 
 
     <div class="container">
         {{-- @include('sweet::alert') --}}
         @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
         @yield('content')
-        @include('mazer_template.layouts_dilanpolres.footer')
+        @include('mazer_template.layouts_sipastap.footer')
     </div>
 
     {{-- <title>Contoh Select2 di Bootstrap 5</title> --}}
@@ -57,7 +57,7 @@
 
     {{-- select2 --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    @include('mazer_template.layouts_dilanpolres.select2')
+    @include('mazer_template.layouts_sipastap.select2')
 
 </body>
 

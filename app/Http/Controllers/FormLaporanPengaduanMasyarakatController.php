@@ -127,7 +127,7 @@ class FormLaporanPengaduanMasyarakatController extends Controller
     }
 
     public function create() {
-        return view('mazer_template.dilan_polres.form_laporan_pengaduan_masyarakat.create');
+        return view('mazer_template.sipastap.form_laporan_pengaduan_masyarakat.create');
     }
 
     public function store(Request $request) {
@@ -186,7 +186,7 @@ class FormLaporanPengaduanMasyarakatController extends Controller
         if($validator->fails()) {
             Alert::error('Cek kembali pengisian form, terima kasih !');
             // Alert::error($validator->errors());
-            return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create')->withErrors($validator->errors())->withInput();
         }
 
         try {
@@ -240,23 +240,23 @@ class FormLaporanPengaduanMasyarakatController extends Controller
         ]);
     } catch (\Illuminate\Database\QueryException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create');
+        return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create');
     } catch (ModelNotFoundException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create');
+        return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create');
     } catch (\Exception $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create');
+        return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create');
     } catch (PDOException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create');
+        return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create');
     } catch (Throwable $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporanpengaduanmasyarakat.create');
+        return redirect()->route('sipastap.formlaporanpengaduanmasyarakat.create');
     }
 
         Alert::success('Sukses', 'Formulir laporan pengaduan masyarakat berhasil ditambahkan.');
-        return redirect()->route('dilanpolres.index');
+        return redirect()->route('sipastap.index');
     }
 
     public function edit($id) {

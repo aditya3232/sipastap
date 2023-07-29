@@ -127,7 +127,7 @@ class FormLaporanTindakKriminalController extends Controller
     }
 
     public function create() {
-        return view('mazer_template.dilan_polres.form_laporan_tindak_kriminal.create');
+        return view('mazer_template.sipastap.form_laporan_tindak_kriminal.create');
     }
 
     public function store(Request $request) {
@@ -157,7 +157,7 @@ class FormLaporanTindakKriminalController extends Controller
         if($validator->fails()) {
             Alert::error('Cek kembali pengisian form, terima kasih !');
             // Alert::error($validator->errors());
-            return redirect()->route('dilanpolres.formlaporantindakkriminal.create')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.formlaporantindakkriminal.create')->withErrors($validator->errors())->withInput();
         }
 
         try {
@@ -178,23 +178,23 @@ class FormLaporanTindakKriminalController extends Controller
         ]);
     } catch (\Illuminate\Database\QueryException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporantindakkriminal.create');
+        return redirect()->route('sipastap.formlaporantindakkriminal.create');
     } catch (ModelNotFoundException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporantindakkriminal.create');
+        return redirect()->route('sipastap.formlaporantindakkriminal.create');
     } catch (\Exception $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporantindakkriminal.create');
+        return redirect()->route('sipastap.formlaporantindakkriminal.create');
     } catch (PDOException $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporantindakkriminal.create');
+        return redirect()->route('sipastap.formlaporantindakkriminal.create');
     } catch (Throwable $e) {
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formlaporantindakkriminal.create');
+        return redirect()->route('sipastap.formlaporantindakkriminal.create');
     }
 
         Alert::success('Sukses', 'Formulir laporan tindak kriminal berhasil ditambahkan.');
-        return redirect()->route('dilanpolres.index');
+        return redirect()->route('sipastap.index');
     }
 
     public function edit($id) {

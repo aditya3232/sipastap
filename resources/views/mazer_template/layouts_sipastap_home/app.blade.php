@@ -21,14 +21,14 @@
 </head>
 
 <body>
-    @include('mazer_template.layouts_dilanpolres_home.header')
+    @include('mazer_template.layouts_sipastap_home.header')
 
 
     <div class="container">
-        @include('mazer_template.layouts_dilanpolres_home.carousel')
+        @include('mazer_template.layouts_sipastap_home.carousel')
         @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
         @yield('content')
-        @include('mazer_template.layouts_dilanpolres_home.footer')
+        @include('mazer_template.layouts_sipastap_home.footer')
     </div>
 
 

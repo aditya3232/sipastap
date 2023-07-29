@@ -1,4 +1,4 @@
-@extends('mazer_template.layouts_dilanpolres.app')
+@extends('mazer_template.layouts_sipastap.app')
 @section('title', 'Formulir Permohonan Sim')
 @section('content')
 
@@ -14,9 +14,9 @@
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="mb-4">
-                <a href="{{ route('dilanpolres.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
+                <a href="{{ route('sipastap.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
             </div>
-            <form class="form" action="{{ route('dilanpolres.formsim.store') }}" id="form-create-sim" method="POST">
+            <form class="form" action="{{ route('sipastap.formsim.store') }}" id="form-create-sim" method="POST">
                 @csrf
                 <div class="col-12">
                     <div class="card">
@@ -38,7 +38,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="keperluan_skck" style="font-weight: bold">Keperluan SKCK<span class="text-danger">*</span></label>
-                                            <input type="text" id="keperluan_skck" class="form-control" placeholder="..." name="keperluan_skck" value="{{ old('keperluan_skck') ? old('keperluan_skck') : '' }}">
+                                            <input type="text" id="keperluan_skck" class="form-control" placeholder="..." name="keperluan_skck"
+                                                value="{{ old('keperluan_skck') ? old('keperluan_skck') : '' }}">
                                             @if($errors->has('keperluan_skck'))
                                                 <span class="text-danger">{{ $errors->first('keperluan_skck') }}</span>
                                             @endif
@@ -96,7 +97,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="kebangsaan" style="font-weight: bold">Kebangsaan<span class="text-danger">*</span></label>
-                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan" value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
+                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan"
+                                                value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
                                             @if($errors->has('kebangsaan'))
                                                 <span class="text-danger">{{ $errors->first('kebangsaan') }}</span>
                                             @endif
@@ -127,7 +129,8 @@
                                                 <option value="Menikah" {{ old('status_perkawinan') == 'Menikah' ?  'selected' : '' }}>
                                                     Menikah
                                                 </option>
-                                                <option value="Tidak Menikah" {{ old('status_perkawinan') == 'Tidak Menikah' ?  'selected' : '' }}>
+                                                <option value="Tidak Menikah"
+                                                    {{ old('status_perkawinan') == 'Tidak Menikah' ?  'selected' : '' }}>
                                                     Tidak Menikah
                                                 </option>
                                             </select>
@@ -203,10 +206,10 @@
                 </div>
 
                 <div class="row">
-                        <div class="col-12 col-md-6 order-md-1 order-last">
-                            <h3>Hubungan Kekeluargaan (Relationship) :</h3>
-                        </div>
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>Hubungan Kekeluargaan (Relationship) :</h3>
                     </div>
+                </div>
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
@@ -266,7 +269,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="kebangsaan" style="font-weight: bold">Kebangsaan<span class="text-danger">*</span></label>
-                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan" value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
+                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan"
+                                                value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
                                             @if($errors->has('kebangsaan'))
                                                 <span class="text-danger">{{ $errors->first('kebangsaan') }}</span>
                                             @endif
@@ -275,7 +279,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="alamat" style="font-weight: bold">Alamat<span class="text-danger">*</span></label>
-                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat" value="{{ old('alamat') ? old('alamat') : '' }}">
+                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat"
+                                                value="{{ old('alamat') ? old('alamat') : '' }}">
                                             @if($errors->has('alamat'))
                                                 <span class="text-danger">{{ $errors->first('alamat') }}</span>
                                             @endif
@@ -345,7 +350,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="kebangsaan" style="font-weight: bold">Kebangsaan<span class="text-danger">*</span></label>
-                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan" value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
+                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan"
+                                                value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
                                             @if($errors->has('kebangsaan'))
                                                 <span class="text-danger">{{ $errors->first('kebangsaan') }}</span>
                                             @endif
@@ -354,7 +360,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="alamat" style="font-weight: bold">Alamat<span class="text-danger">*</span></label>
-                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat" value="{{ old('alamat') ? old('alamat') : '' }}">
+                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat"
+                                                value="{{ old('alamat') ? old('alamat') : '' }}">
                                             @if($errors->has('alamat'))
                                                 <span class="text-danger">{{ $errors->first('alamat') }}</span>
                                             @endif
@@ -424,7 +431,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="kebangsaan" style="font-weight: bold">Kebangsaan<span class="text-danger">*</span></label>
-                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan" value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
+                                            <input type="text" id="kebangsaan" class="form-control" placeholder="..." name="kebangsaan"
+                                                value="{{ old('kebangsaan') ? old('kebangsaan') : '' }}">
                                             @if($errors->has('kebangsaan'))
                                                 <span class="text-danger">{{ $errors->first('kebangsaan') }}</span>
                                             @endif
@@ -433,7 +441,8 @@
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
                                             <label for="alamat" style="font-weight: bold">Alamat<span class="text-danger">*</span></label>
-                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat" value="{{ old('alamat') ? old('alamat') : '' }}">
+                                            <input type="text" id="alamat" class="form-control" placeholder="..." name="alamat"
+                                                value="{{ old('alamat') ? old('alamat') : '' }}">
                                             @if($errors->has('alamat'))
                                                 <span class="text-danger">{{ $errors->first('alamat') }}</span>
                                             @endif
@@ -444,7 +453,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </form>
             <div class="d-grid gap-2 mt-4">
                 <button class="btn btn-primary btn-lg" type="submit" id="submit-create-sim" onClick="changeToLoadingFormSim()">Submit</button>

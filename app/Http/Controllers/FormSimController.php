@@ -128,7 +128,7 @@ class FormSimController extends Controller
     }
 
     public function create() {
-        return view('mazer_template.dilan_polres.form_sim.create');
+        return view('mazer_template.sipastap.form_sim.create');
     }
 
     public function store(Request $request) {
@@ -168,7 +168,7 @@ class FormSimController extends Controller
 
         if($validator->fails()) {
             Alert::error('Cek kembali pengisian form, terima kasih !');
-            return redirect()->route('dilanpolres.formsim.create')->withErrors($validator->errors())->withInput();
+            return redirect()->route('sipastap.formsim.create')->withErrors($validator->errors())->withInput();
         }
 
         try {
@@ -201,27 +201,27 @@ class FormSimController extends Controller
     } catch (\Illuminate\Database\QueryException $e) {
         // Alert::error('Gagal menyimpan!');
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formsim.create');
+        return redirect()->route('sipastap.formsim.create');
     } catch (ModelNotFoundException $e) {
         // Alert::error('Gagal menyimpan!');
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formsim.create');
+        return redirect()->route('sipastap.formsim.create');
     } catch (\Exception $e) {
         // Alert::error('Gagal menyimpan!');
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formsim.create');
+        return redirect()->route('sipastap.formsim.create');
     } catch (PDOException $e) {
         // Alert::error('Gagal menyimpan!');
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formsim.create');
+        return redirect()->route('sipastap.formsim.create');
     } catch (Throwable $e) {
         // Alert::error('Gagal menyimpan!');
         Alert::error($e->getMessage());
-        return redirect()->route('dilanpolres.formsim.create');
+        return redirect()->route('sipastap.formsim.create');
     }
 
         Alert::success('Sukses', 'Formulir permohonan sim berhasil ditambahkan.');
-        return redirect()->route('dilanpolres.index');
+        return redirect()->route('sipastap.index');
     }
 
     public function edit($id) {

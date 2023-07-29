@@ -1,12 +1,12 @@
-@extends('mazer_template.layouts_dilanpolres.app')
-@section('title', 'Formulir Laporan Kehilangan')
+@extends('mazer_template.layouts_sipastap.app')
+@section('title', 'Formulir Pendaftaran Sidik Jari')
 @section('content')
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Formulir Laporan Kehilangan</h3>
+                <h3>Formulir Pendaftaran Sidik Jari</h3>
             </div>
         </div>
     </div>
@@ -14,21 +14,23 @@
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="mb-4">
-                <a href="{{ route('dilanpolres.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
+                <a href="{{ route('sipastap.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
             </div>
-            <form class="form" action="{{ route('dilanpolres.formlaporankehilangan.store') }}" id="form-create-laporanKehilangan" method="POST">
+            {{-- <form class="form" action="{{ route('sipastap.formsidikjari.store') }}" id="" method="POST"
+            onSubmit="document.getElementById('submit-create-sidik-jari').disabled=true;"> --}}
+            <form class="form" action="{{ route('sipastap.formsidikjari.store') }}" id="form-create-sidik-jari" method="POST">
                 @csrf
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-
                         </div>
                         <div class="card-content">
                             <div class="card-body">
+
                                 <div class="row">
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="nama" style="font-weight: bold">Nama</label>
+                                            <label for="nama" style="font-weight: bold;">Nama <span class="text-danger">*</span></label>
                                             <input type="text" id="nama" class="form-control" placeholder="..." name="nama" value="{{ old('nama') ? old('nama') : '' }}">
                                             @if($errors->has('nama'))
                                                 <span class="text-danger">{{ $errors->first('nama') }}</span>
@@ -37,7 +39,7 @@
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="nama_kecil_alias" style="font-weight: bold">Nama Kecil / Alias <span class="text-danger">*</span></label>
+                                            <label for="nama_kecil_alias" style="font-weight: bold;">Nama Kecil / Alias <span class="text-danger">*</span></label>
                                             <input type="text" id="nama_kecil_alias" class="form-control" placeholder="..." name="nama_kecil_alias"
                                                 value="{{ old('nama_kecil_alias') ? old('nama_kecil_alias') : '' }}">
                                             @if($errors->has('nama_kecil_alias'))
@@ -183,45 +185,127 @@
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="barang_hilang" style="font-weight: bold;">Barang Hilang</label>
-                                            <input type="text" id="barang_hilang" class="form-control" placeholder="..." name="barang_hilang"
-                                                value="{{ old('barang_hilang') ? old('barang_hilang') : '' }}">
-                                            @if($errors->has('barang_hilang'))
-                                                <span class="text-danger">{{ $errors->first('barang_hilang') }}</span>
+                                            <label for="status_pernikahan" style="font-weight: bold;">Status Pernikahan <span class="text-danger">*</span></label>
+                                            <select class="form-control form-select" name="status_pernikahan">
+                                                <option selected disabled value="">...</option>
+                                                <option value="Menikah" {{ old('status_pernikahan') == 'Menikah' ?  'selected' : '' }}>
+                                                    Menikah
+                                                </option>
+                                                <option value="Belum Menikah"
+                                                    {{ old('status_pernikahan') == 'Belum Menikah' ?  'selected' : '' }}>
+                                                    Belum Menikah
+                                                </option>
+                                            </select>
+                                            @if($errors->has('status_pernikahan'))
+                                                <span class="text-danger">{{ $errors->first('status_pernikahan') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_ayah" style="font-weight: bold;">Nama Ayah <span class="text-danger">*</span></label>
+                                            <input type="text" id="nama_ayah" class="form-control" placeholder="..." name="nama_ayah"
+                                                value="{{ old('nama_ayah') ? old('nama_ayah') : '' }}">
+                                            @if($errors->has('nama_ayah'))
+                                                <span class="text-danger">{{ $errors->first('nama_ayah') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="alamat_ayah" style="font-weight: bold;">Alamat Ayah</label>
+                                            <textarea name="alamat_ayah" id="alamat_ayah" cols="24" class="form-control" placeholder="..."
+                                                rows="3">{{ old('alamat_ayah') ? old('alamat_ayah') : '' }}</textarea>
+                                            @if($errors->has('alamat_ayah'))
+                                                <span class="text-danger">{{ $errors->first('alamat_ayah') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_ibu" style="font-weight: bold;">Nama Ibu <span class="text-danger">*</span></label>
+                                            <input type="text" id="nama_ibu" class="form-control" placeholder="..." name="nama_ibu"
+                                                value="{{ old('nama_ibu') ? old('nama_ibu') : '' }}">
+                                            @if($errors->has('nama_ibu'))
+                                                <span class="text-danger">{{ $errors->first('nama_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="alamat_ibu" style="font-weight: bold;">Alamat Ibu</label>
+                                            <textarea name="alamat_ibu" id="alamat_ibu" cols="24" class="form-control" placeholder="..."
+                                                rows="3">{{ old('alamat_ibu') ? old('alamat_ibu') : '' }}</textarea>
+                                            @if($errors->has('alamat_ibu'))
+                                                <span class="text-danger">{{ $errors->first('alamat_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_istri" style="font-weight: bold;">Nama Istri</label>
+                                            <input type="text" id="nama_istri" class="form-control" placeholder="..." name="nama_istri"
+                                                value="{{ old('nama_istri') ? old('nama_istri') : '' }}">
+                                            @if($errors->has('nama_istri'))
+                                                <span class="text-danger">{{ $errors->first('nama_istri') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_suami" style="font-weight: bold;">Nama Suami</label>
+                                            <input type="text" id="nama_suami" class="form-control" placeholder="..." name="nama_suami"
+                                                value="{{ old('nama_suami') ? old('nama_suami') : '' }}">
+                                            @if($errors->has('nama_suami'))
+                                                <span class="text-danger">{{ $errors->first('nama_suami') }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_anak" style="font-weight: bold;">Nama Anak</label>
+                                            <input type="text" id="nama_anak" class="form-control" placeholder="..." name="nama_anak"
+                                                value="{{ old('nama_anak') ? old('nama_anak') : '' }}">
+                                            @if($errors->has('nama_anak'))
+                                                <span class="text-danger">{{ $errors->first('nama_anak') }}</span>
                                             @endif
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                 </div>
             </form>
             <div class="d-grid gap-2 mt-4">
-                <button class="btn btn-primary btn-lg" type="submit" id="submit-create-laporanKehilangan" onClick="changeToLoadingFormLaporanKehilangan()">Submit</button>
+                <button class="btn btn-primary btn-lg" type="submit" id="submit-create-sidik-jari" onClick="changeToLoadingFormSidikJari()">Submit</button>
             </div>
         </div>
     </section>
 </div>
 
 <script>
-    function changeToLoadingFormLaporanKehilangan() {
-        var btn = document.getElementById('submit-create-laporanKehilangan');
+    function changeToLoadingFormSidikJari() {
+        var btn = document.getElementById('submit-create-sidik-jari');
         btn.innerHTML = '<span class="spinner-border" role="status" aria-hidden="true"></span> Loading...';
         btn.disabled = true;
 
+        // Simulating a delay of 2 seconds for demonstration purposes
         setTimeout(function () {
+            // Enable the button and change the text back to "Login" after the delay
             btn.disabled = false;
             btn.innerHTML = 'Submit';
 
-            submitFormSim();
+            // Submit the form
+            submitFormSidikJari();
         }, 2000);
     }
 
-    function submitFormSim() {
-        var form = document.getElementById('form-create-laporanKehilangan');
+    function submitFormSidikJari() {
+        // Get the form element
+        var form = document.getElementById('form-create-sidik-jari');
 
+        // Submit the form
         form.submit();
     }
 

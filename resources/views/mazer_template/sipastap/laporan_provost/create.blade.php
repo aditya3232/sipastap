@@ -1,4 +1,4 @@
-@extends('mazer_template.layouts_dilanpolres.app')
+@extends('mazer_template.layouts_sipastap.app')
 @section('content')
 
 <div class="page-heading">

@@ -1,12 +1,12 @@
-@extends('mazer_template.layouts_dilanpolres.app')
-@section('title', 'Formulir Laporan Tindak Kriminal')
+@extends('mazer_template.layouts_sipastap.app')
+@section('title', 'Formulir Laporan Kehilangan')
 @section('content')
 
 <div class="page-heading">
     <div class="page-title">
         <div class="row">
             <div class="col-12 col-md-6 order-md-1 order-last">
-                <h3>Formulir Laporan Tindak Kriminal</h3>
+                <h3>Formulir Laporan Kehilangan</h3>
             </div>
         </div>
     </div>
@@ -14,9 +14,9 @@
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="mb-4">
-                <a href="{{ route('dilanpolres.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
+                <a href="{{ route('sipastap.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
             </div>
-            <form class="form" action="{{ route('dilanpolres.formlaporantindakkriminal.store') }}" id="form-create-laporanTindakKriminal" method="POST">
+            <form class="form" action="{{ route('sipastap.formlaporankehilangan.store') }}" id="form-create-laporanKehilangan" method="POST">
                 @csrf
                 <div class="col-12">
                     <div class="card">
@@ -183,11 +183,11 @@
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="tindak_kriminal" style="font-weight: bold;">Tindak Kriminal</label>
-                                            <input type="text" id="tindak_kriminal" class="form-control" placeholder="..." name="tindak_kriminal"
-                                                value="{{ old('tindak_kriminal') ? old('tindak_kriminal') : '' }}">
-                                            @if($errors->has('tindak_kriminal'))
-                                                <span class="text-danger">{{ $errors->first('tindak_kriminal') }}</span>
+                                            <label for="barang_hilang" style="font-weight: bold;">Barang Hilang</label>
+                                            <input type="text" id="barang_hilang" class="form-control" placeholder="..." name="barang_hilang"
+                                                value="{{ old('barang_hilang') ? old('barang_hilang') : '' }}">
+                                            @if($errors->has('barang_hilang'))
+                                                <span class="text-danger">{{ $errors->first('barang_hilang') }}</span>
                                             @endif
                                         </div>
                                     </div>
@@ -199,15 +199,15 @@
                 </div>
             </form>
             <div class="d-grid gap-2 mt-4">
-                <button class="btn btn-primary btn-lg" type="submit" id="submit-create-laporanTindakKriminal" onClick="changeToLoadingFormLaporanTindakKriminal()">Submit</button>
+                <button class="btn btn-primary btn-lg" type="submit" id="submit-create-laporanKehilangan" onClick="changeToLoadingFormLaporanKehilangan()">Submit</button>
             </div>
         </div>
     </section>
 </div>
 
 <script>
-    function changeToLoadingFormLaporanTindakKriminal() {
-        var btn = document.getElementById('submit-create-laporanTindakKriminal');
+    function changeToLoadingFormLaporanKehilangan() {
+        var btn = document.getElementById('submit-create-laporanKehilangan');
         btn.innerHTML = '<span class="spinner-border" role="status" aria-hidden="true"></span> Loading...';
         btn.disabled = true;
 
@@ -220,7 +220,7 @@
     }
 
     function submitFormSim() {
-        var form = document.getElementById('form-create-laporanTindakKriminal');
+        var form = document.getElementById('form-create-laporanKehilangan');
 
         form.submit();
     }

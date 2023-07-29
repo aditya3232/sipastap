@@ -1,4 +1,4 @@
-@extends('mazer_template.layouts_dilanpolres.app')
+@extends('mazer_template.layouts_sipastap.app')
 @section('title', 'Formulir Laporan Pengaduan Masyarakat')
 @section('content')
 
@@ -14,9 +14,9 @@
     <section id="multiple-column-form">
         <div class="row match-height">
             <div class="mb-4">
-                <a href="{{ route('dilanpolres.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
+                <a href="{{ route('sipastap.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
             </div>
-            <form class="form" action="{{ route('dilanpolres.formlaporanpengaduanmasyarakat.store') }}" id="form-create-pengaduan-masyarakat" method="POST">
+            <form class="form" action="{{ route('sipastap.formlaporanpengaduanmasyarakat.store') }}" id="form-create-pengaduan-masyarakat" method="POST">
                 @csrf
                 <div class="col-12">
                     <div class="card">

@@ -1,11 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\DilanPolresController;
-use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\SipastapController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SkckOnlineController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FormSidikJariController;
 use App\Http\Controllers\FormSimController;
@@ -114,14 +112,14 @@ Route::group(['prefix' => 'admin/profiles', 'as' => 'admin.profiles.', 'middlewa
     Route::post('/update', [ProfileController::class, 'update'])->name('update');
 });
 
-// dilanpolres home
-Route::group(['prefix' => 'dilanpolres', 'as' => 'dilanpolres.'], function() {
-    Route::get('/', [DilanPolresController::class, 'index'])->name('index');
-    Route::get('/formsidikjari', [DilanPolresController::class, 'formSidikJari'])->name('formsidikjari');
+// sipastap home
+Route::group(['prefix' => 'sipastap', 'as' => 'sipastap.'], function() {
+    Route::get('/', [SipastapController::class, 'index'])->name('index');
+    Route::get('/formsidikjari', [SipastapController::class, 'formSidikJari'])->name('formsidikjari');
 });
 
-// form sidik jari in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formsidikjari', 'as' => 'dilanpolres.formsidikjari.'], function() {
+// form sidik jari in sipastap
+Route::group(['prefix' => 'sipastap/formsidikjari', 'as' => 'sipastap.formsidikjari.'], function() {
     Route::get('/create', [FormSidikJariController::class, 'create'])->name('create');
     Route::post('/store', [FormSidikJariController::class, 'store'])->name('store');
 });
@@ -137,8 +135,8 @@ Route::group(['prefix' => 'admin/formsidikjari', 'as' => 'admin.formsidikjari.',
     Route::get('/pdf/{id}', [FormSidikJariController::class, 'pdf'])->name('pdf');
 });
 
-// form permohonan sim in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formsim', 'as' => 'dilanpolres.formsim.'], function() {
+// form permohonan sim in sipastap
+Route::group(['prefix' => 'sipastap/formsim', 'as' => 'sipastap.formsim.'], function() {
     Route::get('/create', [FormSimController::class, 'create'])->name('create');
     Route::post('/store', [FormSimController::class, 'store'])->name('store');
 });
@@ -154,8 +152,8 @@ Route::group(['prefix' => 'admin/formsim', 'as' => 'admin.formsim.', 'middleware
     Route::get('/pdf/{id}', [FormSimController::class, 'pdf'])->name('pdf');
 });
 
-// form permohonan laporan kehilangan in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formlaporankehilangan', 'as' => 'dilanpolres.formlaporankehilangan.'], function() {
+// form permohonan laporan kehilangan in sipastap
+Route::group(['prefix' => 'sipastap/formlaporankehilangan', 'as' => 'sipastap.formlaporankehilangan.'], function() {
     Route::get('/create', [FormLaporanKehilanganController::class, 'create'])->name('create');
     Route::post('/store', [FormLaporanKehilanganController::class, 'store'])->name('store');
 });
@@ -171,8 +169,8 @@ Route::group(['prefix' => 'admin/formlaporankehilangan', 'as' => 'admin.formlapo
     Route::get('/pdf/{id}', [FormLaporanKehilanganController::class, 'pdf'])->name('pdf');
 });
 
-// form permohonan laporan tindak kriminal in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formlaporantindakkriminal', 'as' => 'dilanpolres.formlaporantindakkriminal.'], function() {
+// form permohonan laporan tindak kriminal in sipastap
+Route::group(['prefix' => 'sipastap/formlaporantindakkriminal', 'as' => 'sipastap.formlaporantindakkriminal.'], function() {
     Route::get('/create', [FormLaporanTindakKriminalController::class, 'create'])->name('create');
     Route::post('/store', [FormLaporanTindakKriminalController::class, 'store'])->name('store');
 });
@@ -188,8 +186,8 @@ Route::group(['prefix' => 'admin/formlaporantindakkriminal', 'as' => 'admin.form
     Route::get('/pdf/{id}', [FormLaporanTindakKriminalController::class, 'pdf'])->name('pdf');
 });
 
-// form permohonan laporan pengaduan masyarakat in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formlaporanpengaduanmasyarakat', 'as' => 'dilanpolres.formlaporanpengaduanmasyarakat.'], function() {
+// form permohonan laporan pengaduan masyarakat in sipastap
+Route::group(['prefix' => 'sipastap/formlaporanpengaduanmasyarakat', 'as' => 'sipastap.formlaporanpengaduanmasyarakat.'], function() {
     Route::get('/create', [FormLaporanPengaduanMasyarakatController::class, 'create'])->name('create');
     Route::post('/store', [FormLaporanPengaduanMasyarakatController::class, 'store'])->name('store');
 });
@@ -205,8 +203,8 @@ Route::group(['prefix' => 'admin/formlaporanpengaduanmasyarakat', 'as' => 'admin
     Route::get('/pdf/{id}', [FormLaporanPengaduanMasyarakatController::class, 'pdf'])->name('pdf');
 });
 
-// form permohonan laporan permohonan skck in dilanpolres
-Route::group(['prefix' => 'dilanpolres/formskck', 'as' => 'dilanpolres.formskck.'], function() {
+// form permohonan laporan permohonan skck in sipastap
+Route::group(['prefix' => 'sipastap/formskck', 'as' => 'sipastap.formskck.'], function() {
     Route::get('/create', [FormSkckController::class, 'create'])->name('create');
     Route::post('/store', [FormSkckController::class, 'store'])->name('store');
 });

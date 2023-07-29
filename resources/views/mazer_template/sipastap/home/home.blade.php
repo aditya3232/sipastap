@@ -1,4 +1,4 @@
-@extends('mazer_template.layouts_dilanpolres_home.app')
+@extends('mazer_template.layouts_sipastap_home.app')
 @section('title', 'Layanan Online Polresta Tidore')
 @section('content')
 
@@ -15,7 +15,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/sidik-jari.jpeg" alt="Card image cap" style="height: 20rem; width: 20rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Pendaftaran Sidik Jari</h4>
-                                <a type="button" class="btn btn-primary block mt-2" href="{{ route('dilanpolres.formsidikjari.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block mt-2" href="{{ route('sipastap.formsidikjari.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/sim.jpeg" alt="Card image cap" style="height: 20rem; width: 20rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Permohonan SIM</h4>
-                                <a type="button" class="btn btn-primary block mt-2" href="{{ route('dilanpolres.formsim.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block mt-2" href="{{ route('sipastap.formsim.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/kehilangan.jpeg" alt="Card image cap" style="height: 20rem; width: 20rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Laporan Kehilangan</h4>
-                                <a type="button" class="btn btn-primary block" href="{{ route('dilanpolres.formlaporankehilangan.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formlaporankehilangan.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/tindak-kriminal.jpeg" alt="Card image cap" style="height: 20rem; width: 20rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Laporan Tindak Kriminal</h4>
-                                <a type="button" class="btn btn-primary block" href="{{ route('dilanpolres.formlaporantindakkriminal.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formlaporantindakkriminal.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
@@ -63,7 +63,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/pengaduan_masyarakat.png" alt="Card image cap" style="height: 20rem; width: 20rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Laporan Pengaduan Masyarakat</h4>
-                                <a type="button" class="btn btn-primary block" href="{{ route('dilanpolres.formlaporanpengaduanmasyarakat.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formlaporanpengaduanmasyarakat.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
@@ -74,7 +74,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/skck.png" alt="Card image cap" style="height: 20rem; width: 30rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Permohonan SKCK</h4>
-                                <a type="button" class="btn btn-primary block" href="{{ route('dilanpolres.formlaporantindakkriminal.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formlaporantindakkriminal.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
