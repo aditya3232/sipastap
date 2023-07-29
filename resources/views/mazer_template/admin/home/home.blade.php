@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="page-heading">
-    <h3>Dashboard Admin Polresta Tidore</h3>
+    <h3>Dashboard Sistem Pelayanan Satu Atap Polresta Tidore</h3>
 </div>
 <div class="page-content">
     <section class="row">

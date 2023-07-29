@@ -20,10 +20,10 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="assets/images/samples/courosel-tidore.jpg" class="d-block w-100 custom-image-corousel" alt="...">
+                        <img src="assets/images/samples/SIPPDOR.png" class="d-block w-100 custom-image-corousel" alt="...">
                     </div>
                     <div class="carousel-item">
-                        <img src="assets/images/samples/courosel-tidore.jpg" class="d-block w-100 custom-image-corousel" alt="...">
+                        <img src="assets/images/samples/SIPPDOR.png" class="d-block w-100 custom-image-corousel" alt="...">
                     </div>
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">

@@ -13,8 +13,7 @@
                     <h1 class="text-uppercase text-briview-login d-flex align-items-center justify-content-center">
                         <img src="/assets/images/logo/polri.png" class="mr-4" alt="polresta-tidore-company" style="max-width: 40%; height: 100%;">
                         <div class="d-flex flex-column align-items-start" style="font-size: 20px; ">
-                            <span>Polresta</span>
-                            <span>Tidore</span>
+                            <p>SIPASTAP</p>
                         </div>
                     </h1>
                 </div>
