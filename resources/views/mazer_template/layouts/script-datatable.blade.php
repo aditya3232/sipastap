@@ -406,3 +406,55 @@
     });
 
 </script>
+<script>
+    $(document).ready(function () {
+        $('#form_skck').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: {
+                url: "{{ route('admin.formskck.datatable') }}",
+                dataType: "json",
+                type: "POST",
+                data: {
+                    _token: "{{ csrf_token() }}"
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    // Do something here
+                    console.log(Error);
+                }
+            },
+            columns: [{
+                    data: null,
+                    "sortable": false,
+                    render: function (data, type, row, meta) {
+                        return meta.row + meta.settings._iDisplayStart + 1;
+                    }
+                },
+                {
+                    data: "nama"
+                },
+                {
+                    data: "nik"
+                },
+                {
+                    data: "alamat_sekarang"
+                },
+                {
+                    data: "no_telp"
+                },
+                {
+                    data: "keperluan"
+                },
+                {
+                    data: "options",
+                    "sortable": false,
+                }
+            ],
+            order: [
+                [5, 'desc']
+            ]
+
+        });
+    });
+
+</script>

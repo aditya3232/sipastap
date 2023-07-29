@@ -10,6 +10,7 @@ use App\Http\Controllers\FormSimController;
 use App\Http\Controllers\FormLaporanKehilanganController;
 use App\Http\Controllers\FormLaporanTindakKriminalController;
 use App\Http\Controllers\FormLaporanPengaduanMasyarakatController;
+use App\Http\Controllers\FormSkckController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 

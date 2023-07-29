@@ -74,7 +74,7 @@
                             <img class="card-img-top img-fluid" src="assets/images/samples/skck.png" alt="Card image cap" style="height: 20rem; width: 30rem;" />
                             <div class="card-body d-flex flex-column">
                                 <h4 class="card-title">Permohonan SKCK</h4>
-                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formlaporantindakkriminal.create') }}">Input Data</a type="button">
+                                <a type="button" class="btn btn-primary block" href="{{ route('sipastap.formskck.create') }}">Input Data</a type="button">
                             </div>
                         </div>
                     </div>
