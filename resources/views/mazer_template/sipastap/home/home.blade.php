@@ -1,5 +1,5 @@
 @extends('mazer_template.layouts_sipastap_home.app')
-@section('title', 'Layanan Online Polresta Tidore')
+@section('title', 'Layanan Online Sipastap')
 @section('content')
 
 <div class="page-heading">
