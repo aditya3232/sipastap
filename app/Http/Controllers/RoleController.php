@@ -27,7 +27,8 @@ class RoleController extends Controller
                             1 => 'id', //action
                         );
 
-        $totalData = Role::whereNotIn('name', ['admin'])->count();
+        $totalData = Role::whereNotIn('name', ['admin', 'Fresh'])->count();
+
 
         $totalFiltered = $totalData; 
 
@@ -38,7 +39,7 @@ class RoleController extends Controller
 
         if(empty($request->input('search.value')))
         {            
-            $Roles = Role::whereNotIn('name', ['admin'])
+            $Roles = Role::whereNotIn('name', ['admin', 'Fresh'])
                          ->offset($start)
                          ->limit($limit)
                          ->orderBy($order,$dir)
@@ -49,7 +50,7 @@ class RoleController extends Controller
 
             $Roles =  Role::where('id','LIKE',"%{$search}%")
                             ->orWhere('name', 'LIKE',"%{$search}%")
-                            ->whereNotIn('name', ['admin'])
+                            ->whereNotIn('name', ['admin', 'Fresh'])
                             ->offset($start)
                             ->limit($limit)
                             ->orderBy($order,$dir)
@@ -57,7 +58,7 @@ class RoleController extends Controller
 
             $totalFiltered = Role::where('id','LIKE',"%{$search}%")
                              ->orWhere('name', 'LIKE',"%{$search}%")
-                             ->whereNotIn('name', ['admin'])
+                             ->whereNotIn('name', ['admin', 'Fresh'])
                              ->count();
         }
 

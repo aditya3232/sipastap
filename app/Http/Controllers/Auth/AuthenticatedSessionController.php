@@ -53,7 +53,7 @@ class AuthenticatedSessionController extends Controller
 
         // Alert::error('Cek kembali email atau password, terima kasih !');
         // return back();
-        return back()->with('gagal', 'Cek kembali email atau password anda!');
+        return back()->with('gagal', 'Cek kembali username atau password anda!');
     }
 
     /**

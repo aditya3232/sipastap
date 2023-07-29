@@ -105,6 +105,7 @@ Route::group(['prefix' => 'admin/users', 'as' => 'admin.users.', 'middleware' =>
     Route::post('/update/{id}', [UserController::class, 'update'])->name('update');
     Route::post('/select2roles', [UserController::class, 'select2Roles'])->name('select2roles');
     Route::delete('/destroy/{id}', [UserController::class, 'destroy'])->name('destroy');
+    Route::post('/resetpassword/{id}', [UserController::class, 'resetPassword'])->name('resetpassword');
 });
 
 // setting profile

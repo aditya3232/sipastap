@@ -38,7 +38,7 @@ class UserController extends Controller
                             4 => 'id', //action
                         );
 
-        $totalData = User::with('role')->count();
+        $totalData = User::with('role')->whereNotIn('username', ['admin'])->count();
 
         $totalFiltered = $totalData; 
 
@@ -51,6 +51,7 @@ class UserController extends Controller
         {            
             $Users = User::with('role')
                          ->where('id', '!=', Auth::user()->id) // Exclude the logged-in user's ID
+                         ->whereNotIn('username', ['admin'])
                          ->offset($start)
                          ->limit($limit)
                          ->orderBy($order,$dir)
@@ -61,6 +62,7 @@ class UserController extends Controller
 
             $Users = User::with('role')
                             ->whereNotIn('id', [Auth::user()->id]) // Exclude the logged-in user's ID
+                            ->whereNotIn('username', ['admin'])
                             ->where(function ($query) use ($search) {
                                 $query->where('id', 'LIKE', "%{$search}%")
                                     ->orWhere('name', 'LIKE', "%{$search}%")
@@ -69,6 +71,7 @@ class UserController extends Controller
                                         $q->where('name', 'LIKE', "%{$search}%");
                                     })
                                     ->orWhere('username', 'LIKE', "%{$search}%");
+                                    
                             })
                             ->offset($start)
                             ->limit($limit)
@@ -81,6 +84,7 @@ class UserController extends Controller
 
             $totalFiltered = User::with('role')
                             ->whereNotIn('id', [Auth::user()->id]) // Exclude the logged-in user's ID
+                            ->whereNotIn('username', ['admin'])
                             ->where(function ($query) use ($search) {
                                 $query->where('id', 'LIKE', "%{$search}%")
                                     ->orWhere('name', 'LIKE', "%{$search}%")
@@ -100,6 +104,8 @@ class UserController extends Controller
             {
                 $edit =  route('admin.users.edit',$User->id);
                 $destroy =  route('admin.users.destroy',$User->id);
+                $UserId = $User->id;
+                $UserName = $User->name;
 
                 $nestedData['id'] = $User->id;
                 $nestedData['name'] = $User->name;
@@ -110,8 +116,9 @@ class UserController extends Controller
                 // data auth biar orang yg login tidak bisa edit atau hapus usernya sendiri. if (row.authId === row.id) return "" in script datatable
                 // ini digunakan buat jaga2 aja, walaupun data user yg login tidak ditampilkan di daftar users
                 $nestedData['authId'] = Auth::user()->id; 
-                $nestedData['options'] = "&emsp;<a href='{$edit}' title='EDIT ROLE' class='btn btn-info btn-sm mt-2'><i class='bi bi-pencil-square'></i></a>
-                                          &emsp;<a href='{$destroy}' title='DESTROY' class='btn btn-danger btn-sm mt-2' data-confirm-delete='true'><i class='bi bi-trash' data-confirm-delete='true'></i></a>";
+                $nestedData['options'] = "<a href='{$edit}' title='EDIT ROLE' class='btn btn-info btn-sm mt-2'><i class='bi bi-pencil-square'></i></a>
+                                          <a href='{$destroy}' title='DESTROY' class='btn btn-danger btn-sm mt-2' data-confirm-delete='true'><i class='bi bi-trash' data-confirm-delete='true'></i></a>
+                                          <a data-user-id='$UserId' data-user-name='$UserName' title='RESET PASSWORD' class='btn btn-warning btn-sm mt-2' data-bs-toggle='modal' data-bs-target='#modalResetPassword'><i class='bi bi-x-diamond-fill'></i></a>";
                 $data[] = $nestedData;
 
             }
@@ -342,5 +349,55 @@ class UserController extends Controller
         Alert::success('Sukses', 'User berhasil dihapus');
         return redirect()->route('admin.users.index');
     }
+
+    public function resetPassword(Request $request, $id) {
+        try {
+        User::findOrFail($id);
+
+        } catch (\Illuminate\Database\QueryException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (ModelNotFoundException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (\Exception $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (PDOException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (Throwable $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        }
+
+        try {
+        User::where('id',$id)
+        ->update([
+        'password' => Hash::make($request->input('password')),
+        // 'password' => $request->input('password'),
+        ]);
+        } catch (\Illuminate\Database\QueryException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (ModelNotFoundException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (\Exception $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (PDOException $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        } catch (Throwable $e) {
+        Alert::error('Gagal reset password!');
+        return redirect()->route('admin.users.index');
+        }
+
+        Alert::success('Sukses', 'Reset password berhasil');
+        return redirect()->route('admin.users.index');
+    }
+
+
 
 }
