@@ -80,10 +80,10 @@
                             @csrf
                             <div class="form">
                                 <div id="username-field" class="field-wrapper input">
-                                    <label for="username">EMAIL</label>
+                                    <label for="username">USERNAME</label>
                                     <i data-feather="user"></i>
-                                    <input id="email" class="block mt-1 w-full form-control" type="email" name="email" placeholder="Email" :value="old('email')" required autofocus />
-                                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                                    <input id="username" class="block mt-1 w-full form-control" type="text" name="username" placeholder="username" :value="old('username')" required autofocus />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
                                 </div>
 
                                 <div id="password-field" class="field-wrapper input mb-3">

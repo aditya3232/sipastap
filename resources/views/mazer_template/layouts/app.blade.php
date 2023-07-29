@@ -53,13 +53,23 @@
 
         .footer {
             position: fixed;
-            left: 0;
+            left: 50%;
+            /* Position the footer to the center horizontally */
+            transform: translateX(-40%);
+            /* Center the footer using negative margin */
             bottom: 0;
-            width: 100%;
+            width: 80%;
+            /* Set the width of the footer to 80% of the viewport */
             height: 55px;
             /* Adjust this value to set the height of your footer */
             z-index: 10;
             /* Ensure the footer appears above the sidebar */
+            background-color: #f1f1f1;
+            /* Set your desired background color */
+            text-align: center;
+            /* Align the content inside the footer */
+            padding-top: 15px;
+            /* Add padding to center the content vertically */
         }
 
     </style>
@@ -80,7 +90,7 @@
 
             @yield('content')
 
-            @include('mazer_template.layouts.footer')
+            {{-- @include('mazer_template.layouts.footer') --}}
         </div>
     </div>
 

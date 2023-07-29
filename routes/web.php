@@ -42,14 +42,36 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 
+// route error 403
+Route::get('/403', function () {
+    return view('errors.403');
+})->name('403');
+
+// route error 404
+Route::get('/404', function () {
+    return view('errors.404');
+})->name('404');
+
+// route error 500
+Route::get('/500', function () {
+    return view('errors.500');
+})->name('500');
+
+// route error 419
+Route::get('/419', function () {
+    return view('errors.419');
+})->name('419');
+
+// PERMISSIONS DISINI LANGSUNG KE CHILD NYA, DENGAN AKSES CHILD SIDEBAR, BERARTI BISA AKSES SEMUA MENU DI SITU
+
 // admin
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'role:admin,admin pendaftaran sidik jari,fresh']], function() {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['auth', 'roleHasPermission:sidebar child dashboard']], function() {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::get('/berita/create', [AdminController::class, 'index'])->name('berita.create');
 });
 
 // permissions
-Route::group(['prefix' => 'admin/permissions', 'as' => 'admin.permissions.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/permissions', 'as' => 'admin.permissions.', 'middleware' => ['auth', 'roleHasPermission:sidebar child admin permissions']], function() {
     Route::get('/',[ PermissionController::class, 'index'])->name('index');
     Route::post('/datatable', [PermissionController::class, 'dataTable'])->name('datatable');
     Route::get('/create', [PermissionController::class, 'create'])->name('create');
@@ -60,7 +82,7 @@ Route::group(['prefix' => 'admin/permissions', 'as' => 'admin.permissions.', 'mi
 });
 
 // roles
-Route::group(['prefix' => 'admin/roles', 'as' => 'admin.roles.', 'middleware' => ['auth', 'role:admin,admin pendaftaran sidik jari']], function() {
+Route::group(['prefix' => 'admin/roles', 'as' => 'admin.roles.', 'middleware' => ['auth', 'roleHasPermission:sidebar child admin roles']], function() {
     Route::get('/', [RoleController::class, 'index'])->name('index');
     Route::post('/datatable', [RoleController::class, 'dataTable'])->name('datatable');
     Route::get('/create', [RoleController::class, 'create'])->name('create');
@@ -74,7 +96,7 @@ Route::group(['prefix' => 'admin/roles', 'as' => 'admin.roles.', 'middleware' =>
 });
 
 // users
-Route::group(['prefix' => 'admin/users', 'as' => 'admin.users.', 'middleware' => ['auth', 'role:admin,admin pendaftaran sidik jari']], function() {
+Route::group(['prefix' => 'admin/users', 'as' => 'admin.users.', 'middleware' => ['auth', 'roleHasPermission:sidebar child admin users']], function() {
     Route::get('/', [UserController::class, 'index'])->name('index');
     Route::post('/datatable', [UserController::class, 'dataTable'])->name('datatable');
     Route::get('/create', [UserController::class, 'create'])->name('create');
@@ -104,7 +126,7 @@ Route::group(['prefix' => 'dilanpolres/formsidikjari', 'as' => 'dilanpolres.form
 });
 
 // form sidik jari in admin
-Route::group(['prefix' => 'admin/formsidikjari', 'as' => 'admin.formsidikjari.', 'middleware' => ['auth', 'role:admin,admin pendaftaran sidik jari']], function() {
+Route::group(['prefix' => 'admin/formsidikjari', 'as' => 'admin.formsidikjari.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data pendaftaran sidik jari']], function() {
     Route::get('/', [FormSidikJariController::class, 'index'])->name('index');
     Route::post('/datatable', [FormSidikJariController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormSidikJariController::class, 'detail'])->name('detail');
@@ -121,7 +143,7 @@ Route::group(['prefix' => 'dilanpolres/formsim', 'as' => 'dilanpolres.formsim.']
 });
 
 // form permohonan sim in admin
-Route::group(['prefix' => 'admin/formsim', 'as' => 'admin.formsim.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/formsim', 'as' => 'admin.formsim.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data permohonan sim']], function() {
     Route::get('/', [FormSimController::class, 'index'])->name('index');
     Route::post('/datatable', [FormSimController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormSimController::class, 'detail'])->name('detail');
@@ -138,7 +160,7 @@ Route::group(['prefix' => 'dilanpolres/formlaporankehilangan', 'as' => 'dilanpol
 });
 
 // form permohonan laporan kehilangan in admin
-Route::group(['prefix' => 'admin/formlaporankehilangan', 'as' => 'admin.formlaporankehilangan.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/formlaporankehilangan', 'as' => 'admin.formlaporankehilangan.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data laporan kehilangan']], function() {
     Route::get('/', [FormLaporanKehilanganController::class, 'index'])->name('index');
     Route::post('/datatable', [FormLaporanKehilanganController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormLaporanKehilanganController::class, 'detail'])->name('detail');
@@ -155,7 +177,7 @@ Route::group(['prefix' => 'dilanpolres/formlaporantindakkriminal', 'as' => 'dila
 });
 
 // form permohonan laporan tindak kriminal in admin
-Route::group(['prefix' => 'admin/formlaporantindakkriminal', 'as' => 'admin.formlaporantindakkriminal.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/formlaporantindakkriminal', 'as' => 'admin.formlaporantindakkriminal.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data laporan tindak kriminal']], function() {
     Route::get('/', [FormLaporanTindakKriminalController::class, 'index'])->name('index');
     Route::post('/datatable', [FormLaporanTindakKriminalController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormLaporanTindakKriminalController::class, 'detail'])->name('detail');
@@ -172,7 +194,7 @@ Route::group(['prefix' => 'dilanpolres/formlaporanpengaduanmasyarakat', 'as' => 
 });
 
 // form permohonan laporan pengaduan masyarakat in admin
-Route::group(['prefix' => 'admin/formlaporanpengaduanmasyarakat', 'as' => 'admin.formlaporanpengaduanmasyarakat.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/formlaporanpengaduanmasyarakat', 'as' => 'admin.formlaporanpengaduanmasyarakat.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data pengaduan masyarakat']], function() {
     Route::get('/', [FormLaporanPengaduanMasyarakatController::class, 'index'])->name('index');
     Route::post('/datatable', [FormLaporanPengaduanMasyarakatController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormLaporanPengaduanMasyarakatController::class, 'detail'])->name('detail');
@@ -189,7 +211,7 @@ Route::group(['prefix' => 'dilanpolres/formskck', 'as' => 'dilanpolres.formskck.
 });
 
 // form permohonan laporan permohonan skck in admin
-Route::group(['prefix' => 'admin/formskck', 'as' => 'admin.formskck.', 'middleware' => ['auth', 'role:admin']], function() {
+Route::group(['prefix' => 'admin/formskck', 'as' => 'admin.formskck.', 'middleware' => ['auth', 'roleHasPermission:sidebar child master data pendaftaran skck']], function() {
     Route::get('/', [FormSkckController::class, 'index'])->name('index');
     Route::post('/datatable', [FormSkckController::class, 'dataTable'])->name('datatable');
     Route::get('/detail/{id}', [FormSkckController::class, 'detail'])->name('detail');

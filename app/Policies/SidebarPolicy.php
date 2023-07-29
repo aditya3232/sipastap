@@ -82,4 +82,9 @@ class SidebarPolicy
         return $user->role->hasPermission('sidebar child admin permissions'); 
     }
 
+    public function sidebarChildAdminLogs(User $user)
+    {
+        return $user->role->hasPermission('sidebar child admin logs'); 
+    }
+
 }

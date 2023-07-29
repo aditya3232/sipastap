@@ -34,7 +34,8 @@ class UserController extends Controller
                             0 => 'name', 
                             1 => 'email', 
                             2 =>'role.name',
-                            3 => 'id', //action
+                            3 =>'username',
+                            4 => 'id', //action
                         );
 
         $totalData = User::with('role')->count();
@@ -66,7 +67,8 @@ class UserController extends Controller
                                     ->orWhere('email', 'LIKE', "%{$search}%")
                                     ->orWhereHas('role', function ($q) use ($search) {
                                         $q->where('name', 'LIKE', "%{$search}%");
-                                    });
+                                    })
+                                    ->orWhere('username', 'LIKE', "%{$search}%");
                             })
                             ->offset($start)
                             ->limit($limit)
@@ -85,7 +87,8 @@ class UserController extends Controller
                                     ->orWhere('email', 'LIKE', "%{$search}%")
                                     ->orWhereHas('role', function ($q) use ($search) {
                                         $q->where('name', 'LIKE', "%{$search}%");
-                                    });
+                                    })
+                                    ->orWhere('username', 'LIKE', "%{$search}%");
                             })
                             ->count();
         }
@@ -103,6 +106,7 @@ class UserController extends Controller
                 $nestedData['email'] = $User->email;
                 
                 $nestedData['role'] = $User->role->name;
+                $nestedData['username'] = $User->username;
                 // data auth biar orang yg login tidak bisa edit atau hapus usernya sendiri. if (row.authId === row.id) return "" in script datatable
                 // ini digunakan buat jaga2 aja, walaupun data user yg login tidak ditampilkan di daftar users
                 $nestedData['authId'] = Auth::user()->id; 
@@ -132,6 +136,7 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(), [
         'name' => ['required', 'string', 'max:255'],
+        'username' => ['required', 'string', 'max:255', 'unique:' . User::class],
         'email' => ['required', 'string', 'email', 'max:255', 'unique:' . User::class],
         'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
@@ -145,6 +150,7 @@ class UserController extends Controller
             $user = User::create([
                 'role_id' => 14,
                 'name' => $request->name,
+                'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);

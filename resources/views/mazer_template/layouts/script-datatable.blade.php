@@ -114,6 +114,10 @@
                     data: "name"
                 },
                 {
+                    data: "username",
+                    sortable: false,
+                },
+                {
                     data: "email"
                 },
                 {

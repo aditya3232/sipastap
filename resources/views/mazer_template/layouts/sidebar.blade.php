@@ -128,12 +128,17 @@
                     </li>
                 @endcan
 
-                <li class="{{ (request()->is('admin/telescope')) ? 'sidebar-item active' : 'sidebar-item' }}">
-                    <a href="{{ route('telescope') }}" class='sidebar-link' target="_blank">
-                        <i class="bi bi-file-earmark-ruled-fill"></i>
-                        <span>Logs</span>
-                    </a>
-                </li>
+                @can('sidebarChildAdminLogs', App\Models\Sidebar::class)
+                    <li class="{{ (request()->is('admin/telescope')) ? 'sidebar-item active' : 'sidebar-item' }}">
+                        <a href="{{ route('telescope') }}" class='sidebar-link' target="_blank">
+                            <i class="bi bi-file-earmark-ruled-fill"></i>
+                            <span>Logs</span>
+                        </a>
+                    </li>
+                @endcan
+
+
+
             </ul>
         </div>
         <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>

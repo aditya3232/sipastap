@@ -36,15 +36,15 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request)
     {
         $request->validate([
-            'email' => ['required', 'email'],
+            'username' => ['required'],
             'password' => ['required'],
         ]);
 
-        $email = $request->email;
+        $username = $request->username;
         $password = $request->password;
         $remember = $request->remember_me;
 
-        if (Auth::attempt(['email' => $email, 'password' => $password], $remember)) {
+        if (Auth::attempt(['username' => $username, 'password' => $password], $remember)) {
             $request->session()->regenerate();
 
             // return redirect('/dashboard');

@@ -29,6 +29,7 @@
                             <tr>
                                 <th style="border: 1px solid #ddd; padding: 8px; width: 5%;">No</th>
                                 <th style="border: 1px solid #ddd; padding: 8px; width: 15%;">Nama</th>
+                                <th style="border: 1px solid #ddd; padding: 8px; width: 15%;">Username</th>
                                 <th style="border: 1px solid #ddd; padding: 8px; width: 15%;">Email</th>
                                 <th style="border: 1px solid #ddd; padding: 8px; width: 15%;">Role</th>
                                 <th style="border: 1px solid #ddd; padding: 8px; width: 10%;">Action</th>

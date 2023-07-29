@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
         'role_id',
@@ -51,4 +52,5 @@ class User extends Authenticatable
     public function hasRole($role): bool {
         return $this->role()->where('name', $role)->exists();
     }
+
 }
