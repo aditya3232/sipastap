@@ -16,7 +16,7 @@
             <div class="mb-4">
                 <a href="{{ route('sipastap.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
             </div>
-            <form class="form" action="{{ route('sipastap.formsim.store') }}" id="form-create-sim" method="POST">
+            <form class="form" action="{{ route('sipastap.formskck.store') }}" id="form-create-skck" method="POST">
                 @csrf
                 <div class="col-12">
                     <div class="card">
