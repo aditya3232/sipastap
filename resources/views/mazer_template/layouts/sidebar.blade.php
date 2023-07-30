@@ -88,7 +88,7 @@
                 @endcan
 
                 @can('sidebarChildMasterDataPendaftaranSkck', App\Models\Sidebar::class)
-                    <li class="{{ (request()->is('admin/formskck')) ? 'sidebar-item active' : 'sidebar-item' }}">
+                    <li class="{{ (request()->is('admin/formskck*')) ? 'sidebar-item active' : 'sidebar-item' }}">
                         <a href="{{ route('admin.formskck.index') }}" class='sidebar-link'>
                             <i class="bi bi-stack"></i>
                             <span>Permohonan SKCK</span>
