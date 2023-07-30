@@ -476,6 +476,14 @@ class FormSkckController extends Controller
             $skck_daftar_saudara_kandungs_umurs = $request->input('skck_daftar_saudara_kandungs_umur');
             $skck_daftar_saudara_kandungs_pekerjaans = $request->input('skck_daftar_saudara_kandungs_pekerjaan');
             $skck_daftar_saudara_kandungs_alamats = $request->input('skck_daftar_saudara_kandungs_alamat');
+
+            // Use array_filter to remove any null or empty elements from the arrays [prevent insert null to database]
+            $skck_daftar_saudara_kandungs_namas = array_filter($skck_daftar_saudara_kandungs_namas);
+            $skck_daftar_saudara_kandungs_umurs = array_filter($skck_daftar_saudara_kandungs_umurs);
+            $skck_daftar_saudara_kandungs_pekerjaans = array_filter($skck_daftar_saudara_kandungs_pekerjaans);
+            $skck_daftar_saudara_kandungs_alamats = array_filter($skck_daftar_saudara_kandungs_alamats);
+
+            // if skck_daftar_saudara_kandungs_namas value is empty dont insert
             if (count($skck_daftar_saudara_kandungs_namas) > 0) {
                 for ($i = 0; $i < count($skck_daftar_saudara_kandungs_namas); $i++) {
                     DB::table('skck_daftar_saudara_kandungs')->insert([
@@ -487,6 +495,9 @@ class FormSkckController extends Controller
                     ]);
                 }
             }
+
+
+            
             
             
             // step 4: insert into skck_riwayat_sekolahs from multiple data in array, from input like this
@@ -495,6 +506,11 @@ class FormSkckController extends Controller
             // but if no data on array, dont insert or skip
             $skck_riwayat_sekolahs_nama_pendidikans = $request->input('skck_riwayat_sekolahs_nama_pendidikan');
             $skck_riwayat_sekolahs_tahun_luluss = $request->input('skck_riwayat_sekolahs_tahun_lulus');
+
+            // Use array_filter to remove any null or empty elements from the arrays [prevent insert null to database]
+            $skck_riwayat_sekolahs_nama_pendidikans = array_filter($skck_riwayat_sekolahs_nama_pendidikans);
+            $skck_riwayat_sekolahs_tahun_luluss = array_filter($skck_riwayat_sekolahs_tahun_luluss);
+
             if (count($skck_riwayat_sekolahs_nama_pendidikans) > 0) {
                 for ($i = 0; $i < count($skck_riwayat_sekolahs_nama_pendidikans); $i++) {
                     DB::table('skck_riwayat_sekolahs')->insert([
@@ -511,6 +527,11 @@ class FormSkckController extends Controller
             // but if no data on array, dont insert or skip
             $skck_saudara_yg_menjadi_tanggungans_namas = $request->input('skck_saudara_yg_menjadi_tanggungans_nama');
             $skck_saudara_yg_menjadi_tanggungans_alamats = $request->input('skck_saudara_yg_menjadi_tanggungans_alamat');
+
+            // Use array_filter to remove any null or empty elements from the arrays [prevent insert null to database]
+            $skck_saudara_yg_menjadi_tanggungans_namas = array_filter($skck_saudara_yg_menjadi_tanggungans_namas);
+            $skck_saudara_yg_menjadi_tanggungans_alamats = array_filter($skck_saudara_yg_menjadi_tanggungans_alamats);
+
             if (count($skck_saudara_yg_menjadi_tanggungans_namas) > 0) {
                 for ($i = 0; $i < count($skck_saudara_yg_menjadi_tanggungans_namas); $i++) {
                     DB::table('skck_saudara_yg_menjadi_tanggungans')->insert([
@@ -527,6 +548,11 @@ class FormSkckController extends Controller
             // but if no data on array, dont insert or skip
             $skck_daftar_anaks_namas = $request->input('skck_daftar_anaks_nama');
             $skck_daftar_anaks_umurs = $request->input('skck_daftar_anaks_umur');
+
+            // Use array_filter to remove any null or empty elements from the arrays [prevent insert null to database]
+            $skck_daftar_anaks_namas = array_filter($skck_daftar_anaks_namas);
+            $skck_daftar_anaks_umurs = array_filter($skck_daftar_anaks_umurs);
+
             if (count($skck_daftar_anaks_namas) > 0) {
                 for ($i = 0; $i < count($skck_daftar_anaks_namas); $i++) {
                     DB::table('skck_daftar_anaks')->insert([
