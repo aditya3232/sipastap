@@ -174,7 +174,7 @@ class FormSkckController extends Controller
 
                         skck_daftar_diris.apakah_pernah_tersangkut_perkara_pelanggaran as skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran,
                         skck_daftar_diris.dalam_perkara_pelanggaran_apa as skck_daftar_diris_dalam_perkara_pelanggaran_apa,
-                        skck_daftar_diris.sejauh_mana_proses_hukumnya as skck_daftar_diris_sejauh_mana_proses_hukumnya,
+                        skck_daftar_diris.sejauh_mana_proses_hukum_pelanggarannya as skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya,
 
                         skck_daftar_diris.created_at as skck_daftar_diris_created_at,
                         skck_daftar_diris.updated_at as skck_daftar_diris_updated_at,
@@ -267,7 +267,7 @@ class FormSkckController extends Controller
                         ->select('
                         skck_saudara_yg_menjadi_tanggungans.id as skck_saudara_yg_menjadi_tanggungans_id,
                         skck_saudara_yg_menjadi_tanggungans.nama as skck_saudara_yg_menjadi_tanggungans_nama,
-                        skck_saudara_yg_menjadi_tanggungans.umur as skck_saudara_yg_menjadi_tanggungans_umur,
+                        skck_saudara_yg_menjadi_tanggungans.alamat as skck_saudara_yg_menjadi_tanggungans_alamat,
                         ')
                         ->where('skck_daftar_diris.id', $id)
                         ->get();
@@ -288,8 +288,35 @@ class FormSkckController extends Controller
             Alert::error('Gagal melihat detail form permohonan skck!');
             return redirect()->route('admin.formskck.index');
         }
-        
-        return view('mazer_template.admin.form_skck.detail', compact('skck_daftar_diris','skck_daftar_saudara_kandungs','skck_riwayat_sekolahs','skck_saudara_yg_menjadi_tanggungans'));
+
+        try {
+            $skck_daftar_anaks = DB::table('skck_daftar_anaks as skck_daftar_anaks')
+                        ->select('
+                        skck_daftar_anaks.id as skck_daftar_anaks_id,
+                        skck_daftar_anaks.nama as skck_daftar_anaks_nama,
+                        skck_daftar_anaks.umur as skck_daftar_anaks_umur,
+                        ')
+                        ->where('skck_daftar_diris.id', $id)
+                        ->get();
+            
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal melihat detail form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal melihat detail form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal melihat detail form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal melihat detail form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal melihat detail form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+            
+        return view('mazer_template.admin.form_skck.detail', compact('skck_daftar_diris','skck_daftar_saudara_kandungs','skck_riwayat_sekolahs','skck_saudara_yg_menjadi_tanggungans','skck_daftar_anaks'));
     }
 
     public function create() {
@@ -319,7 +346,7 @@ class FormSkckController extends Controller
             'skck_daftar_diris_pekerjaan' => 'required',
             'skck_daftar_diris_alamat_sekarang' => 'required',
             'skck_daftar_diris_nik' => 'required|unique:skck_daftar_diris,nik',
-            'skck_daftar_diris_no_passport' => 'required',
+            'skck_daftar_diris_no_telp' => 'required',
 
             'skck_daftar_diris_rambut' => 'required',
             'skck_daftar_diris_muka' => 'required',
@@ -342,6 +369,20 @@ class FormSkckController extends Controller
             'skck_daftar_diris_alamat_ibu' => 'required',
             
         ],$messages);
+
+        // if input passport not null then must unique, but when null or string '' then not unique
+        if($request->input('skck_daftar_diris_no_passport') != null) {
+            $validator = Validator::make($request->all(),[
+                'skck_daftar_diris_no_passport' => 'required|unique:skck_daftar_diris,no_passport',
+            ],$messages);
+        }
+
+        // if input kitas not null then must unique, but when null then not unique
+        if($request->input('skck_daftar_diris_no_kitas') != null) {
+            $validator = Validator::make($request->all(),[
+                'skck_daftar_diris_no_kitas' => 'required|unique:skck_daftar_diris,no_kitas',
+            ],$messages);
+        }
 
         if($validator->fails()) {
             Alert::error('Cek kembali pengisian form, terima kasih !');
@@ -375,7 +416,6 @@ class FormSkckController extends Controller
                 'muka' => $request->input('skck_daftar_diris_muka'),
                 'kulit' => $request->input('skck_daftar_diris_kulit'),
                 'tinggi_badan' => $request->input('skck_daftar_diris_tinggi_badan'),
-                'tanda_istimewa' => $request->input('skck_daftar_diris_tanda_istimewa'),
                 'tanda_istimewa' => $request->input('skck_daftar_diris_tanda_istimewa'),
                 'rumus_sidik_jari' => $request->input('skck_daftar_diris_rumus_sidik_jari'),
 
@@ -419,38 +459,83 @@ class FormSkckController extends Controller
 
                 'apakah_pernah_tersangkut_perkara_pelanggaran' => $request->input('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran'),
                 'dalam_perkara_pelanggaran_apa' => $request->input('skck_daftar_diris_dalam_perkara_pelanggaran_apa'),
-                'sejauh_mana_proses_hukumnya' => $request->input('skck_daftar_diris_sejauh_mana_proses_hukumnya'),
+                'sejauh_mana_proses_hukum_pelanggarannya' => $request->input('skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya'),
 
             ]);
 
             // setp 2: find the id of the newly created skck_daftar_diris
             $skck_daftar_diris_id = DB::table('skck_daftar_diris')->where('nik', $request->input('skck_daftar_diris_nik'))->first()->id;
 
-            // step 3: insert into skck_daftar_saudara_kandungs
-            DB::table('skck_daftar_saudara_kandungs')->insert([
-                'skck_daftar_diris_id' => $skck_daftar_diris_id,
-                'nama' => $request->input('skck_daftar_saudara_kandungs_nama'),
-                'umur' => $request->input('skck_daftar_saudara_kandungs_umur'),
-                'pekerjaan' => $request->input('skck_daftar_saudara_kandungs_pekerjaan'),
-                'alamat' => $request->input('skck_daftar_saudara_kandungs_alamat'),
+            // step 3: insert into skck_daftar_saudara_kandungs from multiple data in array, from input like this 
+            // name="skck_daftar_saudara_kandungs_nama[]"
+            // name="skck_daftar_saudara_kandungs_umur[]"
+            // name="skck_daftar_saudara_kandungs_pekerjaan[]"
+            // name="skck_daftar_saudara_kandungs_alamat[]"
+            // but if no data on array, dont insert or skip
+            $skck_daftar_saudara_kandungs_namas = $request->input('skck_daftar_saudara_kandungs_nama');
+            $skck_daftar_saudara_kandungs_umurs = $request->input('skck_daftar_saudara_kandungs_umur');
+            $skck_daftar_saudara_kandungs_pekerjaans = $request->input('skck_daftar_saudara_kandungs_pekerjaan');
+            $skck_daftar_saudara_kandungs_alamats = $request->input('skck_daftar_saudara_kandungs_alamat');
+            if (count($skck_daftar_saudara_kandungs_namas) > 0) {
+                for ($i = 0; $i < count($skck_daftar_saudara_kandungs_namas); $i++) {
+                    DB::table('skck_daftar_saudara_kandungs')->insert([
+                        'skck_daftar_diris_id' => $skck_daftar_diris_id,
+                        'nama' => $skck_daftar_saudara_kandungs_namas[$i],
+                        'umur' => $skck_daftar_saudara_kandungs_umurs[$i],
+                        'pekerjaan' => $skck_daftar_saudara_kandungs_pekerjaans[$i],
+                        'alamat' => $skck_daftar_saudara_kandungs_alamats[$i],
+                    ]);
+                }
+            }
+            
+            
+            // step 4: insert into skck_riwayat_sekolahs from multiple data in array, from input like this
+            // name="skck_riwayat_sekolahs_nama_pendidikan[]"
+            // name="skck_riwayat_sekolahs_tahun_lulus[]"
+            // but if no data on array, dont insert or skip
+            $skck_riwayat_sekolahs_nama_pendidikans = $request->input('skck_riwayat_sekolahs_nama_pendidikan');
+            $skck_riwayat_sekolahs_tahun_luluss = $request->input('skck_riwayat_sekolahs_tahun_lulus');
+            if (count($skck_riwayat_sekolahs_nama_pendidikans) > 0) {
+                for ($i = 0; $i < count($skck_riwayat_sekolahs_nama_pendidikans); $i++) {
+                    DB::table('skck_riwayat_sekolahs')->insert([
+                        'skck_daftar_diris_id' => $skck_daftar_diris_id,
+                        'nama_pendidikan' => $skck_riwayat_sekolahs_nama_pendidikans[$i],
+                        'tahun_lulus' => $skck_riwayat_sekolahs_tahun_luluss[$i],
+                    ]);
+                }
+            }
+            
+            // step 5: insert into skck_saudara_yg_menjadi_tanggungans from multiple data in array, from input like this
+            // name="skck_saudara_yg_menjadi_tanggungans_nama[]"
+            // name="skck_saudara_yg_menjadi_tanggungans_alamat[]"
+            // but if no data on array, dont insert or skip
+            $skck_saudara_yg_menjadi_tanggungans_namas = $request->input('skck_saudara_yg_menjadi_tanggungans_nama');
+            $skck_saudara_yg_menjadi_tanggungans_alamats = $request->input('skck_saudara_yg_menjadi_tanggungans_alamat');
+            if (count($skck_saudara_yg_menjadi_tanggungans_namas) > 0) {
+                for ($i = 0; $i < count($skck_saudara_yg_menjadi_tanggungans_namas); $i++) {
+                    DB::table('skck_saudara_yg_menjadi_tanggungans')->insert([
+                        'skck_daftar_diris_id' => $skck_daftar_diris_id,
+                        'nama' => $skck_saudara_yg_menjadi_tanggungans_namas[$i],
+                        'alamat' => $skck_saudara_yg_menjadi_tanggungans_alamats[$i],
+                    ]);
+                }
+            }
 
-            ]);
-
-            // step 4: insert into skck_riwayat_sekolahs
-            DB::table('skck_riwayat_sekolahs')->insert([
-                'skck_daftar_diris_id' => $skck_daftar_diris_id,
-                'nama_pendidikan' => $request->input('skck_riwayat_sekolahs_nama_sekolah'),
-                'tahun_lulus' => $request->input('skck_riwayat_sekolahs_tahun_lulus'),
-
-            ]);
-
-            // step 5: insert into skck_saudara_yg_menjadi_tanggungans
-            DB::table('skck_saudara_yg_menjadi_tanggungans')->insert([
-                'skck_daftar_diris_id' => $skck_daftar_diris_id,
-                'nama' => $request->input('skck_saudara_yg_menjadi_tanggungans_nama'),
-                'umur' => $request->input('skck_saudara_yg_menjadi_tanggungans_umur'),
-
-            ]);
+            // step 6: insert into skck_daftar_anaks from multiple data in array, from input like this
+            // name="skck_daftar_anaks_nama[]"
+            // name="skck_daftar_anaks_umur[]"
+            // but if no data on array, dont insert or skip
+            $skck_daftar_anaks_namas = $request->input('skck_daftar_anaks_nama');
+            $skck_daftar_anaks_umurs = $request->input('skck_daftar_anaks_umur');
+            if (count($skck_daftar_anaks_namas) > 0) {
+                for ($i = 0; $i < count($skck_daftar_anaks_namas); $i++) {
+                    DB::table('skck_daftar_anaks')->insert([
+                        'skck_daftar_diris_id' => $skck_daftar_diris_id,
+                        'nama' => $skck_daftar_anaks_namas[$i],
+                        'umur' => $skck_daftar_anaks_umurs[$i],
+                    ]);
+                }
+            }
 
             // If everything went well, commit the changes
             // All changes are now committed to the database
@@ -459,27 +544,27 @@ class FormSkckController extends Controller
         } catch (\Illuminate\Database\QueryException $e) {
             // Something went wrong, rollback the transaction
             DB::rollBack();
-            Alert::error('Input data skck gagal !');
+            Alert::error($e->getMessage());
             return redirect()->route('sipastap.formskck.create');
 
         } catch (ModelNotFoundException $e) {
             DB::rollBack();
-            Alert::error('Input data skck gagal !');
+            Alert::error($e->getMessage());
             return redirect()->route('sipastap.formskck.create');
 
         } catch (\Exception $e) {
             DB::rollBack();
-            Alert::error('Input data skck gagal !');
+            Alert::error($e->getMessage());
             return redirect()->route('sipastap.formskck.create');
 
         } catch (PDOException $e) {
             DB::rollBack();
-            Alert::error('Input data skck gagal !');
+            Alert::error($e->getMessage());
             return redirect()->route('sipastap.formskck.create');
 
         } catch (Throwable $e) {
             DB::rollBack();
-            Alert::error('Input data skck gagal !');
+            Alert::error($e->getMessage());
             return redirect()->route('sipastap.formskck.create');
             
         }

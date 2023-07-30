@@ -59,6 +59,16 @@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     @include('mazer_template.layouts_sipastap.select2')
 
+    {{-- radio input unchecked when double clicked --}}
+    <script>
+        $(document).ready(function () {
+            $('input[type="radio"]').on('dblclick', function () {
+                $(this).prop('checked', false);
+            });
+        });
+
+    </script>
+
 </body>
 
 </html>
