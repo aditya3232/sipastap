@@ -2032,26 +2032,71 @@
                 </td>
             </tr>
             <tr>
+                <?php 
+
+                        $skck_riwayat_sekolahs_nama_pendidikan = [];
+                        $skck_riwayat_sekolahs_tahun_lulus = [];
+                        
+                        foreach($skck_riwayat_sekolahs as $data_skck_riwayat_sekolahs) {
+                        $skck_riwayat_sekolahs_nama_pendidikan[] = $data_skck_riwayat_sekolahs->skck_riwayat_sekolahs_nama_pendidikan;
+                        $skck_riwayat_sekolahs_tahun_lulus[] = $data_skck_riwayat_sekolahs->skck_riwayat_sekolahs_tahun_lulus;
+                        }
+
+                        $skck_riwayat_sekolahs_nama_pendidikan = implode(',', $skck_riwayat_sekolahs_nama_pendidikan);
+                        $skck_riwayat_sekolahs_tahun_lulus = implode(',', $skck_riwayat_sekolahs_tahun_lulus);
+
+                        $skck_riwayat_sekolahs_nama_pendidikan = explode(',', $skck_riwayat_sekolahs_nama_pendidikan);
+                        $skck_riwayat_sekolahs_tahun_lulus = explode(',', $skck_riwayat_sekolahs_tahun_lulus);
+
+                        $count_skck_riwayat_sekolahs_nama_pendidikan = count($skck_riwayat_sekolahs_nama_pendidikan);
+
+                ?>
                 <td colspan="6" style="width: 515.5pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm;height: 84.25pt;vertical-align: top;">
                     <p style='margin-top:2.9pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>15. Riwayat Sekolah &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Tahun Lulus</p>
-                    <p style='margin-top:3.05pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>1. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; :</p>
-                    <p style='margin-top:2.95pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>2. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; :</p>
-                    <p style='margin-top:2.95pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>3. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; :</p>
-                    <p style='margin-top:3.1pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>4. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        &nbsp; :</p>
+                    @for($i = 0; $i < count($skck_riwayat_sekolahs_nama_pendidikan); $i++)
+                        @if($i == 0)
+                            <p style='margin-top:3.05pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>1. {{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}&nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp; : {{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}</p>
+                        @elseif($i == 1)
+                            <p style='margin-top:2.95pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>2. {{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}&nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp; : {{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}</p>
+                        @elseif($i == 2)
+                            <p style='margin-top:2.95pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>3. {{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}&nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp; : {{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}</p>
+                        @elseif($i == 3)
+                            <p style='margin-top:3.1pt;margin-right:0cm;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'>4. {{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}&nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;
+                                &nbsp;
+                                &nbsp; : {{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}</p>
+                        @endif
+                    @endfor
                 </td>
             </tr>
             <tr>
                 <td colspan="2" style="width: 268.65pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm;height: 37.25pt;vertical-align: top;">
-                    <p style='margin-top:2.85pt;margin-right:19.3pt;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;text-indent:-18.05pt;'>16. Kesenangan/Kegemaran/Hobi :</p>
+                    @foreach($skck_daftar_diris as $data)
+                        <p style='margin-top:2.85pt;margin-right:19.3pt;margin-bottom:.0001pt;margin-left:23.4pt;font-size:15px;font-family:"Arial MT",sans-serif;text-indent:-18.05pt;'>16. Kesenangan/Kegemaran/Hobi :
+                            {{ $data->skck_daftar_diris_hobi }}</p>
+                    @endforeach
                 </td>
                 <td colspan="4" rowspan="3" style="width: 246.85pt;border-top: none;border-left: none;border-bottom: 1pt solid black;border-right: 1pt solid black;padding: 0cm;height: 37.25pt;vertical-align: top;">
                     <p style='margin-top:2.85pt;margin-right:131.25pt;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;line-height:147%;'>Diisi menurut keadaan Tgl. &nbsp; &nbsp; &nbsp; &nbsp;:</p>
@@ -2061,7 +2106,10 @@
             </tr>
             <tr>
                 <td colspan="2" style="width: 268.65pt;border-right: 1pt solid black;border-bottom: 1pt solid black;border-left: 1pt solid black;border-image: initial;border-top: none;padding: 0cm;height: 37.3pt;vertical-align: top;">
-                    <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>&nbsp;17.&nbsp;Catatan&nbsp;Kriminal&nbsp;yang&nbsp;ada&nbsp;:</p>
+                    @foreach($skck_daftar_diris as $data)
+                        <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>&nbsp;17.&nbsp;Catatan&nbsp;Kriminal&nbsp;yang&nbsp;ada&nbsp;:
+                            {{ $data->skck_daftar_diris_dalam_perkara_pelanggaran_apa }}. {{ $data->skck_daftar_diris_dalam_perkara_pidana_apa }}</p>
+                    @endforeach
                     <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>&nbsp;</p>
                     <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>&nbsp;</p>
                     <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:0cm;font-size:15px;font-family:"Arial MT",sans-serif;'>&nbsp;</p>
