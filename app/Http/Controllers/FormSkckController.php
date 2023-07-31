@@ -625,4 +625,220 @@ class FormSkckController extends Controller
         return redirect()->route('sipastap.index');
     }
 
+    public function pdf($id) {
+        try {
+            $skck_daftar_diris = DB::table('skck_daftar_diris as skck_daftar_diris')
+                        ->select(
+                        'skck_daftar_diris.id as skck_daftar_diris_id',
+                        'skck_daftar_diris.nama as skck_daftar_diris_nama',
+                        'skck_daftar_diris.keperluan as skck_daftar_diris_keperluan',
+                        'skck_daftar_diris.tempat_lahir as skck_daftar_diris_tempat_lahir',
+                        'skck_daftar_diris.tanggal_lahir as skck_daftar_diris_tanggal_lahir',
+                        'skck_daftar_diris.umur as skck_daftar_diris_umur',
+                        'skck_daftar_diris.kedudukan_dalam_keluarga as skck_daftar_diris_kedudukan_dalam_keluarga',
+                        'skck_daftar_diris.agama as skck_daftar_diris_agama',
+                        'skck_daftar_diris.kebangsaan as skck_daftar_diris_kebangsaan',
+                        'skck_daftar_diris.jenis_kelamin as skck_daftar_diris_jenis_kelamin',
+                        'skck_daftar_diris.status_kawin as skck_daftar_diris_status_kawin',
+                        'skck_daftar_diris.pekerjaan as skck_daftar_diris_pekerjaan',
+                        'skck_daftar_diris.alamat_sekarang as skck_daftar_diris_alamat_sekarang',
+                        'skck_daftar_diris.nik as skck_daftar_diris_nik',
+                        'skck_daftar_diris.no_passport as skck_daftar_diris_no_passport',
+                        'skck_daftar_diris.no_kitas as skck_daftar_diris_no_kitas',
+                        'skck_daftar_diris.no_telp as skck_daftar_diris_no_telp',
+
+                        'skck_daftar_diris.rambut as skck_daftar_diris_rambut',
+                        'skck_daftar_diris.muka as skck_daftar_diris_muka',
+                        'skck_daftar_diris.kulit as skck_daftar_diris_kulit',
+                        'skck_daftar_diris.tinggi_badan as skck_daftar_diris_tinggi_badan',
+                        'skck_daftar_diris.tanda_istimewa as skck_daftar_diris_tanda_istimewa',
+                        'skck_daftar_diris.rumus_sidik_jari as skck_daftar_diris_rumus_sidik_jari',
+
+                        'skck_daftar_diris.suami_atau_istri as skck_daftar_diris_suami_atau_istri',
+                        'skck_daftar_diris.nama_pasangan as skck_daftar_diris_nama_pasangan',
+                        'skck_daftar_diris.umur_pasangan as skck_daftar_diris_umur_pasangan',
+                        'skck_daftar_diris.agama_pasangan as skck_daftar_diris_agama_pasangan',
+                        'skck_daftar_diris.kebangsaan_pasangan as skck_daftar_diris_kebangsaan_pasangan',
+                        'skck_daftar_diris.pekerjaan_pasangan as skck_daftar_diris_pekerjaan_pasangan',
+                        'skck_daftar_diris.alamat_pasangan as skck_daftar_diris_alamat_pasangan',
+
+                        'skck_daftar_diris.nama_bapak as skck_daftar_diris_nama_bapak',
+                        'skck_daftar_diris.umur_bapak as skck_daftar_diris_umur_bapak',
+                        'skck_daftar_diris.agama_bapak as skck_daftar_diris_agama_bapak',
+                        'skck_daftar_diris.kebangsaan_bapak as skck_daftar_diris_kebangsaan_bapak',
+                        'skck_daftar_diris.pekerjaan_bapak as skck_daftar_diris_pekerjaan_bapak',
+                        'skck_daftar_diris.alamat_bapak as skck_daftar_diris_alamat_bapak',
+
+                        'skck_daftar_diris.nama_ibu as skck_daftar_diris_nama_ibu',
+                        'skck_daftar_diris.umur_ibu as skck_daftar_diris_umur_ibu',
+                        'skck_daftar_diris.agama_ibu as skck_daftar_diris_agama_ibu',
+                        'skck_daftar_diris.kebangsaan_ibu as skck_daftar_diris_kebangsaan_ibu',
+                        'skck_daftar_diris.pekerjaan_ibu as skck_daftar_diris_pekerjaan_ibu',
+                        'skck_daftar_diris.alamat_ibu as skck_daftar_diris_alamat_ibu',
+
+                        'skck_daftar_diris.riwayat_pekerjaan_lain as skck_daftar_diris_riwayat_pekerjaan_lain',
+                        'skck_daftar_diris.negara_yg_pernah_dikunjungi as skck_daftar_diris_negara_yg_pernah_dikunjungi',
+                        'skck_daftar_diris.hobi as skck_daftar_diris_hobi',
+                        'skck_daftar_diris.no_telp_lain as skck_daftar_diris_no_telp_lain',
+                        'skck_daftar_diris.disponsori_oleh as skck_daftar_diris_disponsori_oleh',
+                        'skck_daftar_diris.alamat_sponsor as skck_daftar_diris_alamat_sponsor',
+                        'skck_daftar_diris.no_telp_sponsor as skck_daftar_diris_no_telp_sponsor',
+                        'skck_daftar_diris.fax as skck_daftar_diris_fax',
+                        'skck_daftar_diris.jenis_usaha as skck_daftar_diris_jenis_usaha',
+
+                        'skck_daftar_diris.apakah_pernah_tersangkut_perkara_pidana as skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana',
+                        'skck_daftar_diris.dalam_perkara_pidana_apa as skck_daftar_diris_dalam_perkara_pidana_apa',
+                        'skck_daftar_diris.bagaimana_putusan_hakim as skck_daftar_diris_bagaimana_putusan_hakim',
+                        'skck_daftar_diris.apakah_sedang_dalam_proses_pidana as skck_daftar_diris_apakah_sedang_dalam_proses_pidana',
+                        'skck_daftar_diris.sejauh_mana_proses_hukum_pidananya as skck_daftar_diris_sejauh_mana_proses_hukum_pidananya',
+
+                        'skck_daftar_diris.apakah_pernah_tersangkut_perkara_pelanggaran as skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran',
+                        'skck_daftar_diris.dalam_perkara_pelanggaran_apa as skck_daftar_diris_dalam_perkara_pelanggaran_apa',
+                        'skck_daftar_diris.sejauh_mana_proses_hukum_pelanggarannya as skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya',
+
+                        'skck_daftar_diris.created_at as skck_daftar_diris_created_at',
+                        'skck_daftar_diris.updated_at as skck_daftar_diris_updated_at',
+                        'skck_daftar_diris.updated_by as skck_daftar_diris_updated_by',
+
+                        'skck_daftar_diris.verified as skck_daftar_diris_verified',
+                        'skck_daftar_diris.verified_by as skck_daftar_diris_verified_by',
+                        'skck_daftar_diris.verified_at as skck_daftar_diris_verified_at',
+
+                        'skck_daftar_diris.why_rejected as skck_daftar_diris_why_rejected'
+                        )
+                        ->where('skck_daftar_diris.id', $id)
+                        ->get();
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        try {
+            $skck_daftar_saudara_kandungs = DB::table('skck_daftar_saudara_kandungs as skck_daftar_saudara_kandungs')
+                        ->select(
+                        'skck_daftar_saudara_kandungs.id as skck_daftar_saudara_kandungs_id',
+                        'skck_daftar_saudara_kandungs.nama as skck_daftar_saudara_kandungs_nama',
+                        'skck_daftar_saudara_kandungs.umur as skck_daftar_saudara_kandungs_umur',
+                        'skck_daftar_saudara_kandungs.pekerjaan as skck_daftar_saudara_kandungs_pekerjaan',
+                        'skck_daftar_saudara_kandungs.alamat as skck_daftar_saudara_kandungs_alamat'
+                        )
+                        ->where('skck_daftar_saudara_kandungs.skck_daftar_diris_id', $id)
+                        ->get();
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        try {
+            $skck_riwayat_sekolahs = DB::table('skck_riwayat_sekolahs as skck_riwayat_sekolahs')
+                        ->select(
+                        'skck_riwayat_sekolahs.id as skck_riwayat_sekolahs_id',
+                        'skck_riwayat_sekolahs.nama_pendidikan as skck_riwayat_sekolahs_nama_pendidikan',
+                        'skck_riwayat_sekolahs.tahun_lulus as skck_riwayat_sekolahs_tahun_lulus',
+                        )
+                        ->where('skck_riwayat_sekolahs.skck_daftar_diris_id', $id)
+                        ->get();
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        try {
+            $skck_saudara_yg_menjadi_tanggungans = DB::table('skck_saudara_yg_menjadi_tanggungans as skck_saudara_yg_menjadi_tanggungans')
+                        ->select(
+                        'skck_saudara_yg_menjadi_tanggungans.id as skck_saudara_yg_menjadi_tanggungans_id',
+                        'skck_saudara_yg_menjadi_tanggungans.nama as skck_saudara_yg_menjadi_tanggungans_nama',
+                        'skck_saudara_yg_menjadi_tanggungans.alamat as skck_saudara_yg_menjadi_tanggungans_alamat',
+                        )
+                        ->where('skck_saudara_yg_menjadi_tanggungans.skck_daftar_diris_id', $id)
+                        ->get();
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        try {
+            $skck_daftar_anaks = DB::table('skck_daftar_anaks as skck_daftar_anaks')
+                        ->select(
+                        'skck_daftar_anaks.id as skck_daftar_anaks_id',
+                        'skck_daftar_anaks.nama as skck_daftar_anaks_nama',
+                        'skck_daftar_anaks.umur as skck_daftar_anaks_umur',
+                        )
+                        ->where('skck_daftar_anaks.skck_daftar_diris_id', $id)
+                        ->get();
+
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal download pdf permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        $imagePath = asset('assets/images/logo/polantas.png');
+ 
+        return view('mazer_template.admin.form_skck.pdf', compact('imagePath', 'skck_daftar_diris', 'skck_daftar_saudara_kandungs', 'skck_riwayat_sekolahs', 'skck_saudara_yg_menjadi_tanggungans', 'skck_daftar_anaks'));
+    }
+
 }

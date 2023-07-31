@@ -15,7 +15,7 @@
         <div class="row match-height">
             <div class="mb-4">
                 <a href="{{ route('admin.formskck.index') }}" type="button" class="btn btn-primary"><i class="bi bi-arrow-return-left" style="font-size: 13px;"></i> Kembali</a>
-                <a type="button" class="btn btn-danger" id="cetak-pdf-form-skck" onClick="cetakPdfFormSkck()"><i class="bi bi-printer" style="font-size: 13px;"></i> Cetak Pdf</a>
+                <a type="button" class="btn btn-danger" id="cetak-pdf-form-skck-new" onClick="cetakPdfFormSkckNew()"><i class="bi bi-printer" style="font-size: 13px;"></i> Cetak Pdf</a>
             </div>
             <div class="col-12">
                 <div class="card">
@@ -1911,21 +1911,22 @@
     </section>
 </div>
 
-<script>
-    function cetakPdfFormSkck() {
-        var btn = document.getElementById('cetak-pdf-form-skck');
-        btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
-        btn.disabled = true;
+@foreach($skck_daftar_diris as $data)
+    <script>
+        function cetakPdfFormSkckNew() {
+            var btn = document.getElementById('cetak-pdf-form-skck-new');
+            btn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+            btn.disabled = true;
 
-        setTimeout(function () {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="bi bi-printer" style="font-size: 13px;"></i> Cetak Pdf';
-            foreach($skck_daftar_diris as $data) {
+            setTimeout(function () {
+                btn.disabled = false;
+                btn.innerHTML = '<i class="bi bi-printer" style="font-size: 13px;"></i> Cetak Pdf';
+
                 window.open('{{ route('admin.formskck.pdf',$data->skck_daftar_diris_id) }}', '_blank');
-            }
-        }, 1000);
-    }
+            }, 1000);
+        }
 
-</script>
+    </script>
+@endforeach
 
 @endsection
