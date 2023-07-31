@@ -13,7 +13,7 @@
                 <nav aria-label="breadcrumb" class="breadcrumb-header float-start float-lg-end">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Admin</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Form Pendaftaran Sidik Jari</li>
+                        <li class="breadcrumb-item active" aria-current="page">Pendaftaran Sidik Jari</li>
                     </ol>
                 </nav>
             </div>
