@@ -1157,7 +1157,7 @@
                                                         
                                                     ?>
 
-                                                    @for($i = 0; $i < count($skck_daftar_anaks_nama); $i++)
+                                                    @for($i = 0; $i < count($skck_riwayat_sekolahs_nama_pendidikan); $i++)
                                                         @if($i == 0)
                                                             <tr>
                                                                 <td>

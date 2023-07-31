@@ -494,6 +494,1418 @@
                     </div>
                 </div>
             </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Bapak Sendiri:</h4>
+                        <h4 class="card-title"><i>Father:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_nama_bapak" style="font-weight: bold">Nama</label> <span class="text-danger">*</span><br>
+                                            <label for="skck_daftar_diris_nama_bapak" style="font-weight: bold"><u><i>Name</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_nama_bapak" class="form-control" placeholder="..." name="skck_daftar_diris_nama_bapak"
+                                                value="{{ old('skck_daftar_diris_nama_bapak') ? old('skck_daftar_diris_nama_bapak') : $data->skck_daftar_diris_nama_bapak }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_nama_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_nama_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_umur_bapak" style="font-weight: bold;">Umur <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_umur_bapak" style="font-weight: bold;"><u><i>Age</i></u></label>
+                                            <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_umur_bapak" class="form-control" placeholder="..." name="skck_daftar_diris_umur_bapak"
+                                                value="{{ old('skck_daftar_diris_umur_bapak') ? old('skck_daftar_diris_umur_bapak') : $data->skck_daftar_diris_umur_bapak }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_umur_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_umur_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_agama_bapak" style="font-weight: bold;">Agama <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_agama_bapak" style="font-weight: bold;"><u><i>Religion</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_agama_bapak" class="form-control" placeholder="..." name="skck_daftar_diris_agama_bapak"
+                                                value="{{ old('skck_daftar_diris_agama_bapak') ? old('skck_daftar_diris_agama_bapak') : $data->skck_daftar_diris_agama_bapak }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_agama_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_agama_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_kebangsaan_bapak" style="font-weight: bold">Kebangsaan <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_kebangsaan_bapak" style="font-weight: bold;"><u><i>Nationality</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_kebangsaan_bapak" class="form-control" placeholder="..." name="skck_daftar_diris_kebangsaan_bapak"
+                                                value="{{ old('skck_daftar_diris_kebangsaan_bapak') ? old('skck_daftar_diris_kebangsaan_bapak') : $data->skck_daftar_diris_kebangsaan_bapak }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_kebangsaan_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_kebangsaan_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_pekerjaan_bapak" style="font-weight: bold;">Pekerjaan <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_pekerjaan_bapak" style="font-weight: bold;"><u><i>Occupation</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_pekerjaan_bapak" class="form-control" placeholder="..." name="skck_daftar_diris_pekerjaan_bapak"
+                                                value="{{ old('skck_daftar_diris_pekerjaan_bapak') ? old('skck_daftar_diris_pekerjaan_bapak') : $data->skck_daftar_diris_pekerjaan_bapak }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_pekerjaan_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_pekerjaan_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_alamat_bapak" style="font-weight: bold;">Alamat sekarang <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_alamat_bapak" style="font-weight: bold;"><u><i>Current Address</i></u></label>
+                                            <textarea name="skck_daftar_diris_alamat_bapak" id="skck_daftar_diris_alamat_bapak" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_alamat_bapak') ? old('skck_daftar_diris_alamat_bapak') : $data->skck_daftar_diris_alamat_bapak }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_alamat_bapak'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_alamat_bapak') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Ibu Sendiri:</h4>
+                        <h4 class="card-title"><i>Mother:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_nama_ibu" style="font-weight: bold">Nama</label> <span class="text-danger">*</span><br>
+                                            <label for="skck_daftar_diris_nama_ibu" style="font-weight: bold"><u><i>Name</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_nama_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_nama_ibu"
+                                                value="{{ old('skck_daftar_diris_nama_ibu') ? old('skck_daftar_diris_nama_ibu') : $data->skck_daftar_diris_nama_ibu }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_nama_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_nama_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_umur_ibu" style="font-weight: bold;">Umur <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_umur_ibu" style="font-weight: bold;"><u><i>Age</i></u></label>
+                                            <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_umur_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_umur_ibu"
+                                                value="{{ old('skck_daftar_diris_umur_ibu') ? old('skck_daftar_diris_umur_ibu') : $data->skck_daftar_diris_umur_ibu }}">
+                                            @if($errors->has('skck_daftar_diris_umur_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_umur_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_agama_ibu" style="font-weight: bold;">Agama <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_agama_ibu" style="font-weight: bold;"><u><i>Religion</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_agama_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_agama_ibu"
+                                                value="{{ old('skck_daftar_diris_agama_ibu') ? old('skck_daftar_diris_agama_ibu') : $data->skck_daftar_diris_agama_ibu }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_agama_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_agama_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_kebangsaan_ibu" style="font-weight: bold">Kebangsaan <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_kebangsaan_ibu" style="font-weight: bold;"><u><i>Nationality</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_kebangsaan_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_kebangsaan_ibu"
+                                                value="{{ old('skck_daftar_diris_kebangsaan_ibu') ? old('skck_daftar_diris_kebangsaan_ibu') : $data->skck_daftar_diris_kebangsaan_ibu }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_kebangsaan_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_kebangsaan_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_pekerjaan_ibu" style="font-weight: bold;">Pekerjaan <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_pekerjaan_ibu" style="font-weight: bold;"><u><i>Occupation</i></u></label>
+                                            <input type="text" id="skck_daftar_diris_pekerjaan_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_pekerjaan_ibu"
+                                                value="{{ old('skck_daftar_diris_pekerjaan_ibu') ? old('skck_daftar_diris_pekerjaan_ibu') : $data->skck_daftar_diris_pekerjaan_ibu }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_pekerjaan_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_pekerjaan_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_alamat_ibu" style="font-weight: bold;">Alamat sekarang <span class="text-danger">*</span></label><br>
+                                            <label for="skck_daftar_diris_alamat_ibu" style="font-weight: bold;"><u><i>Current Address</i></u></label>
+                                            <textarea name="skck_daftar_diris_alamat_ibu" id="skck_daftar_diris_alamat_ibu" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_alamat_ibu') ? old('skck_daftar_diris_alamat_ibu') : $data->skck_daftar_diris_alamat_ibu }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_alamat_ibu'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_alamat_ibu') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Saudara Kandung / Tiri:</h4>
+                        <h4 class="card-title"><i>Siblings:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    {{-- make table input i want input can handle multiple value --}}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Umur</th>
+                                                    <th>Pekerjaan</th>
+                                                    <th>Alamat</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                        // show all data from compact data this data_skck_daftar_saudara_kandungs
+                                                        $skck_daftar_saudara_kandungs_nama = [];
+                                                        $skck_daftar_saudara_kandungs_umur = [];
+                                                        $skck_daftar_saudara_kandungs_pekerjaan = [];
+                                                        $skck_daftar_saudara_kandungs_alamat = [];
+
+                                                        // loop all data from compact data this data_skck_daftar_saudara_kandungs
+                                                        foreach($skck_daftar_saudara_kandungs as $data_skck_daftar_saudara_kandungs) {
+                                                        // get data from table skck_daftar_saudara_kandungs
+                                                        $skck_daftar_saudara_kandungs_nama[] = $data_skck_daftar_saudara_kandungs->skck_daftar_saudara_kandungs_nama;
+                                                        $skck_daftar_saudara_kandungs_umur[] = $data_skck_daftar_saudara_kandungs->skck_daftar_saudara_kandungs_umur;
+                                                        $skck_daftar_saudara_kandungs_pekerjaan[] = $data_skck_daftar_saudara_kandungs->skck_daftar_saudara_kandungs_pekerjaan;
+                                                        $skck_daftar_saudara_kandungs_alamat[] = $data_skck_daftar_saudara_kandungs->skck_daftar_saudara_kandungs_alamat;
+                                                        }
+
+                                                        // convert array to string with separator ,
+                                                        $skck_daftar_saudara_kandungs_nama = implode(',', $skck_daftar_saudara_kandungs_nama);
+                                                        $skck_daftar_saudara_kandungs_umur = implode(',', $skck_daftar_saudara_kandungs_umur);
+                                                        $skck_daftar_saudara_kandungs_pekerjaan = implode(',', $skck_daftar_saudara_kandungs_pekerjaan);
+                                                        $skck_daftar_saudara_kandungs_alamat = implode(',', $skck_daftar_saudara_kandungs_alamat);
+
+                                                        // convert string to array with separator ,
+                                                        $skck_daftar_saudara_kandungs_nama = explode(',', $skck_daftar_saudara_kandungs_nama);
+                                                        $skck_daftar_saudara_kandungs_umur = explode(',', $skck_daftar_saudara_kandungs_umur);
+                                                        $skck_daftar_saudara_kandungs_pekerjaan = explode(',', $skck_daftar_saudara_kandungs_pekerjaan);
+                                                        $skck_daftar_saudara_kandungs_alamat = explode(',', $skck_daftar_saudara_kandungs_alamat);
+
+                                                        // count array
+                                                        $count_skck_daftar_saudara_kandungs_nama = count($skck_daftar_saudara_kandungs_nama);
+                                                        
+                                                    ?>
+
+                                                @for($i = 0; $i < count($skck_daftar_saudara_kandungs_nama); $i++)
+                                                    @if($i == 0)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                    name="skck_daftar_saudara_kandungs_umur[]" value="{{ $skck_daftar_saudara_kandungs_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_pekerjaan[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_daftar_saudara_kandungs_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 1)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                    name="skck_daftar_saudara_kandungs_umur[]" value="{{ $skck_daftar_saudara_kandungs_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_pekerjaan[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_daftar_saudara_kandungs_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 2)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                    name="skck_daftar_saudara_kandungs_umur[]" value="{{ $skck_daftar_saudara_kandungs_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_pekerjaan[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_daftar_saudara_kandungs_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 3)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                    name="skck_daftar_saudara_kandungs_umur[]" value="{{ $skck_daftar_saudara_kandungs_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]"
+                                                                    value="{{ $skck_daftar_saudara_kandungs_pekerjaan[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_daftar_saudara_kandungs_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endfor
+                                                {{-- show below, only the form is left, for example form d. because the previous user only filled out 3 forms --}}
+                                                @if(count($skck_daftar_saudara_kandungs_nama) < 4)
+                                                    @for($i = count($skck_daftar_saudara_kandungs_nama); $i < 4; $i++)
+                                                        @if($i == 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_saudara_kandungs_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 1)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_saudara_kandungs_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 2)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_saudara_kandungs_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 3)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_nama" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_saudara_kandungs_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_saudara_kandungs_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_saudara_kandungs_pekerjaan" class="form-control" placeholder="..." name="skck_daftar_saudara_kandungs_pekerjaan[]" disabled>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_pekerjaan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_pekerjaan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_daftar_saudara_kandungs_alamat[]" id="skck_daftar_saudara_kandungs_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_daftar_saudara_kandungs_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_saudara_kandungs_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endfor
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Anak Kandung:</h4>
+                        <h4 class="card-title"><i>Child:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    {{-- make table input i want input can handle multiple value --}}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Umur</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                    $skck_daftar_anaks_nama = [];
+                                                    $skck_daftar_anaks_umur = [];
+
+                                                    foreach($skck_daftar_anaks as $data_skck_daftar_anaks) {
+                                                        $skck_daftar_anaks_nama[] = $data_skck_daftar_anaks->skck_daftar_anaks_nama;
+                                                        $skck_daftar_anaks_umur[] = $data_skck_daftar_anaks->skck_daftar_anaks_umur;
+                                                    }
+
+                                                    $skck_daftar_anaks_nama = implode(',', $skck_daftar_anaks_nama);
+                                                    $skck_daftar_anaks_umur = implode(',', $skck_daftar_anaks_umur);
+
+                                                    $skck_daftar_anaks_nama = explode(',', $skck_daftar_anaks_nama);
+                                                    $skck_daftar_anaks_umur = explode(',', $skck_daftar_anaks_umur);
+
+                                                    $count_skck_daftar_anaks_nama = count($skck_daftar_anaks_nama);
+                                                        
+                                                ?>
+
+                                                @for($i = 0; $i < count($skck_daftar_anaks_nama); $i++)
+                                                    @if($i == 0)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" value="{{ $skck_daftar_anaks_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..." name="skck_daftar_anaks_umur[]"
+                                                                    value="{{ $skck_daftar_anaks_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 1)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" value="{{ $skck_daftar_anaks_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..." name="skck_daftar_anaks_umur[]"
+                                                                    value="{{ $skck_daftar_anaks_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 2)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" value="{{ $skck_daftar_anaks_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..." name="skck_daftar_anaks_umur[]"
+                                                                    value="{{ $skck_daftar_anaks_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 3)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" value="{{ $skck_daftar_anaks_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..." name="skck_daftar_anaks_umur[]"
+                                                                    value="{{ $skck_daftar_anaks_umur[$i] }}" disabled>
+                                                                @if($errors->has('skck_daftar_anaks_umur'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endfor
+                                                {{-- show below, only the form is left, for example form d. because the previous user only filled out 3 forms --}}
+                                                @if(count($skck_daftar_anaks_nama) < 4)
+                                                    @for($i = count($skck_daftar_anaks_nama); $i < 4; $i++)
+                                                        @if($i == 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_anaks_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 1)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_anaks_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 2)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_anaks_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 3)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_daftar_anaks_nama" class="form-control" placeholder="..." name="skck_daftar_anaks_nama[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_anaks_umur" class="form-control" placeholder="..."
+                                                                        name="skck_daftar_anaks_umur[]" disabled>
+                                                                    @if($errors->has('skck_daftar_anaks_umur'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_daftar_anaks_umur') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endfor
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Riwayat Sekolah:</h4>
+                        <h4 class="card-title"><i>School History:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    {{-- make table input i want input can handle multiple value --}}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama Pendidikan</th>
+                                                    <th>Tahun Lulus</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+
+                                                        $skck_riwayat_sekolahs_nama_pendidikan = [];
+                                                        $skck_riwayat_sekolahs_tahun_lulus = [];
+                                                        
+                                                        foreach($skck_riwayat_sekolahs as $data_skck_riwayat_sekolahs) {
+                                                        $skck_riwayat_sekolahs_nama_pendidikan[] = $data_skck_riwayat_sekolahs->skck_riwayat_sekolahs_nama_pendidikan;
+                                                        $skck_riwayat_sekolahs_tahun_lulus[] = $data_skck_riwayat_sekolahs->skck_riwayat_sekolahs_tahun_lulus;
+                                                        }
+
+                                                        $skck_riwayat_sekolahs_nama_pendidikan = implode(',', $skck_riwayat_sekolahs_nama_pendidikan);
+                                                        $skck_riwayat_sekolahs_tahun_lulus = implode(',', $skck_riwayat_sekolahs_tahun_lulus);
+
+                                                        $skck_riwayat_sekolahs_nama_pendidikan = explode(',', $skck_riwayat_sekolahs_nama_pendidikan);
+                                                        $skck_riwayat_sekolahs_tahun_lulus = explode(',', $skck_riwayat_sekolahs_tahun_lulus);
+
+                                                        $count_skck_riwayat_sekolahs_nama_pendidikan = count($skck_riwayat_sekolahs_nama_pendidikan);
+
+                                                ?>
+
+                                                @for($i = 0; $i < count($skck_riwayat_sekolahs_nama_pendidikan); $i++)
+                                                    @if($i == 0)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]"
+                                                                    value="{{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                    name="skck_riwayat_sekolahs_tahun_lulus[]" value="{{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 1)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]"
+                                                                    value="{{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                    name="skck_riwayat_sekolahs_tahun_lulus[]" value="{{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 2)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]"
+                                                                    value="{{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                    name="skck_riwayat_sekolahs_tahun_lulus[]" value="{{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 3)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]"
+                                                                    value="{{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                    name="skck_riwayat_sekolahs_tahun_lulus[]" value="{{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 4)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]"
+                                                                    value="{{ $skck_riwayat_sekolahs_nama_pendidikan[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                    name="skck_riwayat_sekolahs_tahun_lulus[]" value="{{ $skck_riwayat_sekolahs_tahun_lulus[$i] }}" disabled>
+                                                                @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endfor
+                                                {{-- show below, only the form is left, for example form d. because the previous user only filled out 3 forms --}}
+                                                @if(count($skck_riwayat_sekolahs_nama_pendidikan) < 5)
+                                                    @for($i = count($skck_riwayat_sekolahs_nama_pendidikan); $i < 5; $i++)
+                                                        @if($i == 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                        name="skck_riwayat_sekolahs_tahun_lulus[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 1)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                        name="skck_riwayat_sekolahs_tahun_lulus[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 2)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                        name="skck_riwayat_sekolahs_tahun_lulus[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 3)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                        name="skck_riwayat_sekolahs_tahun_lulus[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 4)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_riwayat_sekolahs_nama_pendidikan" class="form-control" placeholder="..." name="skck_riwayat_sekolahs_nama_pendidikan[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_nama_pendidikan'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_nama_pendidikan') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_riwayat_sekolahs_tahun_lulus" class="form-control" placeholder="..."
+                                                                        name="skck_riwayat_sekolahs_tahun_lulus[]" disabled>
+                                                                    @if($errors->has('skck_riwayat_sekolahs_tahun_lulus'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_riwayat_sekolahs_tahun_lulus') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endfor
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Saudara yang Menjadi Tanggungan:</h4>
+                        <h4 class="card-title"><i>Siblings who are dependents:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    {{-- make table input i want input can handle multiple value --}}
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nama</th>
+                                                    <th>Alamat</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php 
+                                                        $skck_saudara_yg_menjadi_tanggungans_nama = [];
+                                                        $skck_saudara_yg_menjadi_tanggungans_alamat = [];
+                                                        
+                                                        foreach($skck_saudara_yg_menjadi_tanggungans as $data_skck_saudara_yg_menjadi_tanggungans) {
+                                                        $skck_saudara_yg_menjadi_tanggungans_nama[] = $data_skck_saudara_yg_menjadi_tanggungans->skck_saudara_yg_menjadi_tanggungans_nama;
+                                                        $skck_saudara_yg_menjadi_tanggungans_alamat[] = $data_skck_saudara_yg_menjadi_tanggungans->skck_saudara_yg_menjadi_tanggungans_alamat;
+                                                        }
+
+                                                        $skck_saudara_yg_menjadi_tanggungans_nama = implode(',', $skck_saudara_yg_menjadi_tanggungans_nama);
+                                                        $skck_saudara_yg_menjadi_tanggungans_alamat = implode(',', $skck_saudara_yg_menjadi_tanggungans_alamat);
+
+                                                        $skck_saudara_yg_menjadi_tanggungans_nama = explode(',', $skck_saudara_yg_menjadi_tanggungans_nama);
+                                                        $skck_saudara_yg_menjadi_tanggungans_alamat = explode(',', $skck_saudara_yg_menjadi_tanggungans_alamat);
+                                                ?>
+
+                                                @for($i = 0; $i < count($skck_saudara_yg_menjadi_tanggungans_nama); $i++)
+                                                    @if($i == 0)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]"
+                                                                    value="{{ $skck_saudara_yg_menjadi_tanggungans_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_saudara_yg_menjadi_tanggungans_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 1)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]"
+                                                                    value="{{ $skck_saudara_yg_menjadi_tanggungans_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_saudara_yg_menjadi_tanggungans_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 2)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]"
+                                                                    value="{{ $skck_saudara_yg_menjadi_tanggungans_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_saudara_yg_menjadi_tanggungans_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @elseif($i == 3)
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]"
+                                                                    value="{{ $skck_saudara_yg_menjadi_tanggungans_nama[$i] }}" disabled>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                    disabled>{{ $skck_saudara_yg_menjadi_tanggungans_alamat[$i] }}</textarea>
+                                                                @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                    <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                @endif
+                                                            </td>
+                                                        </tr>
+                                                    @endif
+                                                @endfor
+                                                {{-- show below, only the form is left, for example form d. because the previous user only filled out 3 forms --}}
+                                                @if(count($skck_saudara_yg_menjadi_tanggungans_nama) < 4)
+                                                    @for($i = count($skck_saudara_yg_menjadi_tanggungans_nama); $i < 4; $i++)
+                                                        @if($i == 0)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]" disabled>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 1)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]" disabled>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 2)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]" disabled>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @elseif($i == 3)
+                                                            <tr>
+                                                                <td>
+                                                                    <input type="text" id="skck_saudara_yg_menjadi_tanggungans_nama" class="form-control" placeholder="..." name="skck_saudara_yg_menjadi_tanggungans_nama[]" disabled>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_nama'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_nama') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                                <td>
+                                                                    <textarea name="skck_saudara_yg_menjadi_tanggungans_alamat[]" id="skck_saudara_yg_menjadi_tanggungans_alamat" cols="24" class="form-control" placeholder="..." rows="3"
+                                                                        disabled></textarea>
+                                                                    @if($errors->has('skck_saudara_yg_menjadi_tanggungans_alamat'))
+                                                                        <span class="text-danger">{{ $errors->first('skck_saudara_yg_menjadi_tanggungans_alamat') }}</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endif
+                                                    @endfor
+                                                @endif
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Perkara Pidana:</h4>
+                        <h4 class="card-title"><i>Criminal Case:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana" style="font-weight: bold">Apakah saudara pernah tersangkut perkara pidana ?</label><br>
+                                            <label for="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana" style="font-weight: bold"><u><i>Have you ever caught a criminal case ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana" id="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana') ? old('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana') : $data->skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pidana') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_dalam_perkara_pidana_apa" style="font-weight: bold">Dalam perkara apa ?</label><br>
+                                            <label for="skck_daftar_diris_dalam_perkara_pidana_apa" style="font-weight: bold"><u><i>In any case ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_dalam_perkara_pidana_apa" id="skck_daftar_diris_dalam_perkara_pidana_apa" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_dalam_perkara_pidana_apa') ? old('skck_daftar_diris_dalam_perkara_pidana_apa') : $data->skck_daftar_diris_dalam_perkara_pidana_apa }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_dalam_perkara_pidana_apa'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_dalam_perkara_pidana_apa') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_bagaimana_putusan_hakim" style="font-weight: bold">Bagaimana putusannya dan vonis hakim ?</label><br>
+                                            <label for="skck_daftar_diris_bagaimana_putusan_hakim" style="font-weight: bold"><u><i>How to judge the decision and verdict ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_bagaimana_putusan_hakim" id="skck_daftar_diris_bagaimana_putusan_hakim" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_bagaimana_putusan_hakim') ? old('skck_daftar_diris_bagaimana_putusan_hakim') : $data->skck_daftar_diris_bagaimana_putusan_hakim }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_bagaimana_putusan_hakim'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_bagaimana_putusan_hakim') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_apakah_sedang_dalam_proses_pidana" style="font-weight: bold">Apakah saudara sedang dalam proses perkara pidana ? Kasus apa ?</label><br>
+                                            <label for="skck_daftar_diris_apakah_sedang_dalam_proses_pidana" style="font-weight: bold"><u><i>Are you currently in the process of a criminal case ? What kind of case ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_apakah_sedang_dalam_proses_pidana" id="skck_daftar_diris_apakah_sedang_dalam_proses_pidana" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_apakah_sedang_dalam_proses_pidana') ? old('skck_daftar_diris_apakah_sedang_dalam_proses_pidana') : $data->skck_daftar_diris_apakah_sedang_dalam_proses_pidana }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_apakah_sedang_dalam_proses_pidana'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_apakah_sedang_dalam_proses_pidana') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_sejauh_mana_proses_hukum_pidananya" style="font-weight: bold">Sampai sejauh mana proses hukumnya ?</label><br>
+                                            <label for="skck_daftar_diris_sejauh_mana_proses_hukum_pidananya" style="font-weight: bold"><u><i>To what extent is the legal process ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_sejauh_mana_proses_hukum_pidananya" id="skck_daftar_diris_sejauh_mana_proses_hukum_pidananya" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_sejauh_mana_proses_hukum_pidananya') ? old('skck_daftar_diris_sejauh_mana_proses_hukum_pidananya') : $data->skck_daftar_diris_sejauh_mana_proses_hukum_pidananya }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_sejauh_mana_proses_hukum_pidananya'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_sejauh_mana_proses_hukum_pidananya') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Pelanggaran:</h4>
+                        <h4 class="card-title"><i>Violation:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran" style="font-weight: bold">Apakah saudara pernah melakukan pelanggaran hukum dan atau norma-norma sosial lainnya
+                                                ?</label><br>
+                                            <label for="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran" style="font-weight: bold"><u><i>Have you ever violated the law and social norms or other ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran" id="skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran" cols="24" class="form-control" placeholder="..."
+                                                rows="3"
+                                                disabled>{{ old('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran') ? old('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran') : $data->skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_apakah_pernah_tersangkut_perkara_pelanggaran') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_dalam_perkara_pelanggaran_apa" style="font-weight: bold">Pelanggaran hukum atau norma-norma sosial apa ?</label><br>
+                                            <label for="skck_daftar_diris_dalam_perkara_pelanggaran_apa" style="font-weight: bold"><u><i>Violations of the laws or social norms of what ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_dalam_perkara_pelanggaran_apa" id="skck_daftar_diris_dalam_perkara_pelanggaran_apa" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_dalam_perkara_pelanggaran_apa') ? old('skck_daftar_diris_dalam_perkara_pelanggaran_apa') : $data->skck_daftar_diris_dalam_perkara_pelanggaran_apa }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_dalam_perkara_pelanggaran_apa'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_dalam_perkara_pelanggaran_apa') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya" style="font-weight: bold">Sejauh mana proses hukumnya ?</label><br>
+                                            <label for="skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya" style="font-weight: bold"><u><i>To what extent is the process ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya" id="skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya') ? old('skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya') : $data->skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_sejauh_mana_proses_hukum_pelanggarannya') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Informasi Lain:</h4>
+                        <h4 class="card-title"><i>Other Information:</i></h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_riwayat_pekerjaan_lain" style="font-weight: bold">Riwayat pekerjaan Lainnya ?</label><br>
+                                            <label for="skck_daftar_diris_riwayat_pekerjaan_lain" style="font-weight: bold"><u><i>Others Work experience ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_riwayat_pekerjaan_lain" id="skck_daftar_diris_riwayat_pekerjaan_lain" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_riwayat_pekerjaan_lain') ? old('skck_daftar_diris_riwayat_pekerjaan_lain') : $data->skck_daftar_diris_riwayat_pekerjaan_lain }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_riwayat_pekerjaan_lain'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_riwayat_pekerjaan_lain') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_negara_yg_pernah_dikunjungi" style="font-weight: bold">Negara-negara yang pernah dikunjungi (sebutkan tahun berapa, dalam rangka apa, dan negara apa yang dikunjungi)
+                                                ?</label><br>
+                                            <label for="skck_daftar_diris_negara_yg_pernah_dikunjungi" style="font-weight: bold"><u><i>Countries you have ever visited before ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_negara_yg_pernah_dikunjungi" id="skck_daftar_diris_negara_yg_pernah_dikunjungi" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_negara_yg_pernah_dikunjungi') ? old('skck_daftar_diris_negara_yg_pernah_dikunjungi') : $data->skck_daftar_diris_negara_yg_pernah_dikunjungi }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_negara_yg_pernah_dikunjungi'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_negara_yg_pernah_dikunjungi') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_hobi" style="font-weight: bold">Kesenangan / kegemaran / hobi ?</label><br>
+                                            <label for="skck_daftar_diris_hobi" style="font-weight: bold"><u><i>Pleasure / pastimes / hobbies ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_hobi" id="skck_daftar_diris_hobi" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_hobi') ? old('skck_daftar_diris_hobi') : $data->skck_daftar_diris_hobi }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_hobi'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_hobi') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_no_telp_lain" style="font-weight: bold">No telepon lain yang mudah dihubungi ?</label><br>
+                                            <label for="skck_daftar_diris_no_telp_lain" style="font-weight: bold"><u><i>Contacting address in case of emergency (phone call) ?</i></u></label>
+                                            <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_no_telp_lain" class="form-control" placeholder="..." name="skck_daftar_diris_no_telp_lain"
+                                                value="{{ old('skck_daftar_diris_no_telp_lain') ? old('skck_daftar_diris_no_telp_lain') : $data->skck_daftar_diris_no_telp_lain }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_no_telp_lain'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_no_telp_lain') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Sponsor (khusus orang asing / <i>Special foreigners</i> ):</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_disponsori_oleh" style="font-weight: bold">Disponsori oleh ?</label><br>
+                                            <label for="skck_daftar_diris_disponsori_oleh" style="font-weight: bold"><u><i>Sponsored by ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_disponsori_oleh" id="skck_daftar_diris_disponsori_oleh" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_disponsori_oleh') ? old('skck_daftar_diris_disponsori_oleh') : $data->skck_daftar_diris_disponsori_oleh }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_disponsori_oleh'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_disponsori_oleh') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_alamat_sponsor" style="font-weight: bold">Alamat sponsor ?</label><br>
+                                            <label for="skck_daftar_diris_alamat_sponsor" style="font-weight: bold"><u><i>Sponsor address ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_alamat_sponsor" id="skck_daftar_diris_alamat_sponsor" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_alamat_sponsor') ? old('skck_daftar_diris_alamat_sponsor') : $data->skck_daftar_diris_alamat_sponsor }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_alamat_sponsor'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_alamat_sponsor') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_no_telp_sponsor" style="font-weight: bold">No telepon ?</label><br>
+                                            <label for="skck_daftar_diris_no_telp_sponsor" style="font-weight: bold"><u><i>No telp ?</i></u></label>
+                                            <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_no_telp_sponsor" class="form-control" placeholder="..." name="skck_daftar_diris_no_telp_sponsor"
+                                                value="{{ old('skck_daftar_diris_no_telp_sponsor') ? old('skck_daftar_diris_no_telp_sponsor') : $data->skck_daftar_diris_no_telp_sponsor }}"
+                                                disabled>
+                                            @if($errors->has('skck_daftar_diris_no_telp_sponsor'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_no_telp_sponsor') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_fax" style="font-weight: bold">Fax ?</label><br>
+                                            <label for="skck_daftar_diris_fax" style="font-weight: bold"><u><i>Fax ?</i></u></label>
+                                            <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_fax" class="form-control" placeholder="..." name="skck_daftar_diris_fax"
+                                                value="{{ old('skck_daftar_diris_fax') ? old('skck_daftar_diris_fax') : $data->skck_daftar_diris_fax }}" disabled>
+                                            @if($errors->has('skck_daftar_diris_fax'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_fax') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="col-md-12 col-12">
+                                    @foreach($skck_daftar_diris as $data)
+                                        <div class="form-group">
+                                            <label for="skck_daftar_diris_jenis_usaha" style="font-weight: bold">Jenis usaha ?</label><br>
+                                            <label for="skck_daftar_diris_jenis_usaha" style="font-weight: bold"><u><i>Type of business ?</i></u></label>
+                                            <textarea name="skck_daftar_diris_jenis_usaha" id="skck_daftar_diris_jenis_usaha" cols="24" class="form-control" placeholder="..." rows="3"
+                                                disabled>{{ old('skck_daftar_diris_jenis_usaha') ? old('skck_daftar_diris_jenis_usaha') : $data->skck_daftar_diris_jenis_usaha }}</textarea>
+                                            @if($errors->has('skck_daftar_diris_jenis_usaha'))
+                                                <span class="text-danger">{{ $errors->first('skck_daftar_diris_jenis_usaha') }}</span>
+                                            @endif
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- new --}}
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-12">
+                                    <p>Keterangan diatas saya buat dengan sebenarnya atas sumpah menurut kepercayaan saya, apabila
+                                        dikemudian hari ternyata keterangan ini tidak benar maka saya sanggup dituntut berdasarkan hukum yang
+                                        berlaku.
+                                    </p>
+                                    <p>
+                                        <i>
+                                            I made the above statement actually sworn according to
+                                            my belief, if in the future this information turns out true then I could not be prosecuted under applicable laws.
+                                        </i>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </section>
