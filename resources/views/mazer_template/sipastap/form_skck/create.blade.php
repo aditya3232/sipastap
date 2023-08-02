@@ -163,13 +163,13 @@
                                             <label for="skck_daftar_diris_status_kawin" style="font-weight: bold;"><u><i>Married / Not Married</i></u></label>
                                             <select class="form-control form-select" name="skck_daftar_diris_status_kawin">
                                                 <option selected disabled value="">...</option>
-                                                <option value="Menikah"
-                                                    {{ old('skck_daftar_diris_status_kawin') == 'Menikah' ?  'selected' : '' }}>
-                                                    Menikah
+                                                <option value="Kawin"
+                                                    {{ old('skck_daftar_diris_status_kawin') == 'Kawin' ?  'selected' : '' }}>
+                                                    Kawin
                                                 </option>
-                                                <option value="Tidak Menikah"
-                                                    {{ old('skck_daftar_diris_status_kawin') == 'Tidak Menikah' ?  'selected' : '' }}>
-                                                    Tidak Menikah
+                                                <option value="Tidak Kawin"
+                                                    {{ old('skck_daftar_diris_status_kawin') == 'Tidak Kawin' ?  'selected' : '' }}>
+                                                    Tidak Kawin
                                                 </option>
                                             </select>
                                             @if($errors->has('skck_daftar_diris_status_kawin'))

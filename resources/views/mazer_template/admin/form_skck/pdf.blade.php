@@ -6,6 +6,21 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 <style>
+    body {
+        background-image: url('../../../assets/images/samples/sampul-skck-body.jpg');
+        background-size: 100%;
+        /* Use 100% to avoid scaling the image */
+        background-repeat: repeat-x;
+        background-position: center;
+        filter: grayscale(100%);
+        font-weight: bold;
+    }
+
+    /* Exclude the background image on the first page */
+    body.first-page {
+        background-image: none;
+    }
+
     .font1 {
         font-size: 21px;
         font-family: "Cambria", serif;
@@ -90,17 +105,26 @@
     .page-break {
         height: 0;
         page-break-before: always;
+        background-image: inherit;
+        /* Inherit the background image from the body */
+        background-size: 100%;
+        /* Use 100% to avoid scaling the image */
+        background-repeat: repeat;
+        background-position: center;
+        filter: grayscale(100%);
+        font-weight: bold;
     }
 
 </style>
 
-<body>
+<body class="first-page">
     <div style="text-align: center;"><br></div>
     <p><strong><span class="font1">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; NOMOR SKCK :.</span></strong><span style="font-size:19px;color:#4D4D4D;">. . . . . . . . . . . . . . . . . . . .
             . . . . . .</span></p>
     <p><br></p>
-    <img src="Picture1.png" alt="" style=" width: 400px; height: auto;" class="center">
+    <img src="/assets/images/samples/sampul-skck.jpg" alt="" style=" width: 700px; height: auto;" class="center">
+    {{-- <img src="/assets/images/samples/sampul-skck.png" alt="" style=" width: 60px; height: auto;"> --}}
     <p><br></p>
     <p><br></p>
     <p><br></p>
@@ -122,6 +146,9 @@
     <p><br></p>
     <p><br></p>
     <p><br></p>
+</body>
+
+<body>
     <div class="page-break"></div>
     <p class="fonthalaman">1</p>
     <p><br></p>
@@ -273,7 +300,8 @@
                 <td style="width: 362.05pt;padding: 0cm;height: 33.55pt;vertical-align: top;">
                     @foreach($skck_daftar_diris as $data)
                         <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:5.4pt;font-size:15px;font-family:"Arial MT",sans-serif;'><span
-                                style="font-size:16px;">{{ $data->skck_daftar_diris_alamat_sekarang }}</span></p>
+                                style="font-size:16px;">{{ $data->skck_daftar_diris_alamat_sekarang }}</span>
+                        </p>
                     @endforeach
                 </td>
             </tr>
@@ -523,7 +551,8 @@
                 <td colspan="4" style="width: 362.45pt;padding: 0cm;height: 33.6pt;vertical-align: top;">
                     @foreach($skck_daftar_diris as $data)
                         <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:5.3pt;font-size:15px;font-family:"Arial MT",sans-serif;'><span
-                                style="font-size:16px;">{{ $data->skck_daftar_diris_alamat_pasangan }}</span></p>
+                                style="font-size:16px;">{{ $data->skck_daftar_diris_alamat_pasangan }}</span>
+                        </p>
                     @endforeach
                 </td>
             </tr>
@@ -623,7 +652,8 @@
                 <td colspan="4" style="width: 362.45pt;padding: 0cm;height: 33.6pt;vertical-align: top;">
                     @foreach($skck_daftar_diris as $data)
                         <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:5.3pt;font-size:15px;font-family:"Arial MT",sans-serif;'><span
-                                style="font-size:16px;">{{ $data->skck_daftar_diris_kebangsaan_bapak }}</span></p>
+                                style="font-size:16px;">{{ $data->skck_daftar_diris_kebangsaan_bapak }}</span>
+                        </p>
                     @endforeach
                 </td>
             </tr>
@@ -644,7 +674,8 @@
                 <td colspan="4" style="width: 362.45pt;padding: 0cm;height: 33.6pt;vertical-align: top;">
                     @foreach($skck_daftar_diris as $data)
                         <p style='margin-top:2.85pt;margin-right:0cm;margin-bottom:0cm;margin-left:5.3pt;font-size:15px;font-family:"Arial MT",sans-serif;'><span
-                                style="font-size:16px;">{{ $data->skck_daftar_diris_pekerjaan_bapak }}</span></p>
+                                style="font-size:16px;">{{ $data->skck_daftar_diris_pekerjaan_bapak }}</span>
+                        </p>
                     @endforeach
                 </td>
             </tr>
@@ -1756,7 +1787,8 @@
                 <td colspan="3" style="width: 543.45pt;padding: 0cm;height: 77.9pt;vertical-align: top;">
                     <p style='margin-top:5.8pt;margin-right:9.8pt;margin-bottom:.0001pt;margin-left:12.0pt;font-size:15px;font-family:"Arial MT",sans-serif;text-align:justify;'><span style="font-size:16px;">Keterangan diatas saya buat
                             dengan sebenarnya atas sumpah menurut kepercayaan saya, apabila dikemudian hari ternyata keterangan ini tidak benar maka saya sanggup dituntut berdasarkan hukum yang berlaku. /&nbsp;</span><em><span
-                                class="font6">I made the above statement actually sworn according to
+                                class="font6">I
+                                made the above statement actually sworn according to
                                 my&nbsp;belief,&nbsp;if&nbsp;in&nbsp;the&nbsp;future&nbsp;this&nbsp;information&nbsp;turns&nbsp;out&nbsp;true&nbsp;then&nbsp;I&nbsp;could&nbsp;not&nbsp;be&nbsp;prosecuted&nbsp;under&nbsp;applicable&nbsp;laws.</span></em>
                     </p>
                 </td>

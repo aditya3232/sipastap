@@ -618,7 +618,7 @@
                                             <label for="skck_daftar_diris_umur_ibu" style="font-weight: bold;">Umur <span class="text-danger">*</span></label><br>
                                             <label for="skck_daftar_diris_umur_ibu" style="font-weight: bold;"><u><i>Age</i></u></label>
                                             <input oninput="this.value=this.value.replace(/[^0-9]/g,'');" type="number" id="skck_daftar_diris_umur_ibu" class="form-control" placeholder="..." name="skck_daftar_diris_umur_ibu"
-                                                value="{{ old('skck_daftar_diris_umur_ibu') ? old('skck_daftar_diris_umur_ibu') : $data->skck_daftar_diris_umur_ibu }}">
+                                                value="{{ old('skck_daftar_diris_umur_ibu') ? old('skck_daftar_diris_umur_ibu') : $data->skck_daftar_diris_umur_ibu }}" disabled>
                                             @if($errors->has('skck_daftar_diris_umur_ibu'))
                                                 <span class="text-danger">{{ $errors->first('skck_daftar_diris_umur_ibu') }}</span>
                                             @endif

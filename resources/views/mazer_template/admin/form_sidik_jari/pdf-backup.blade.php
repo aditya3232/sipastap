@@ -107,10 +107,10 @@
                             1.
                         </td>
                         <td class="medium-text arial">
-                            Nama
+                            Nama :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nama }}
+                            {{ $data->nama }}
                         </td>
                     </tr>
                     <tr>
@@ -118,10 +118,10 @@
 
                         </td>
                         <td class="medium-text arial">
-                            Nama Kecil / Alias
+                            Nama Kecil / Alias :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nama_keci_alias }}
+                            {{ $data->nama_keci_alias }}
                         </td>
                     </tr>
                     <tr>
@@ -129,10 +129,10 @@
                             2.
                         </td>
                         <td class="medium-text arial">
-                            Tanggal Lahir
+                            Tanggal Lahir :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->tanggal_lahir }}
+                            {{ $data->tanggal_lahir }}
                         </td>
                     </tr>
                     <tr>
@@ -140,10 +140,10 @@
 
                         </td>
                         <td class="medium-text arial">
-                            Tempat Lahir
+                            Tempat Lahir :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->tempat_lahir }}
+                            {{ $data->tempat_lahir }}
                         </td>
                     </tr>
                     <tr>
@@ -151,10 +151,10 @@
                             3.
                         </td>
                         <td class="medium-text arial">
-                            Kebangsaan
+                            Kebangsaan :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->kebangsaan }}
+                            {{ $data->kebangsaan }}
                         </td>
                     </tr>
                     <tr>
@@ -162,10 +162,10 @@
                             4.
                         </td>
                         <td class="medium-text arial">
-                            Agama
+                            Agama :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->agama }}
+                            {{ $data->agama }}
                         </td>
                     </tr>
                     <tr>
@@ -173,10 +173,10 @@
                             5.
                         </td>
                         <td class="medium-text arial">
-                            Alamat Terakhir
+                            Alamat Terakhir :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->alamat_saat_ini }}
+                            {{ $data->alamat_saat_ini }}
                         </td>
                     </tr>
                     <tr>
@@ -184,10 +184,10 @@
                             6.
                         </td>
                         <td class="medium-text arial">
-                            NIK
+                            NIK :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nik }}
+                            {{ $data->nik }}
                         </td>
                     </tr>
                     <tr>
@@ -195,21 +195,10 @@
                             7.
                         </td>
                         <td class="medium-text arial">
-                            No. Paspor
+                            No. Paspor :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->no_paspor }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="medium-text arial">
-                            8.
-                        </td>
-                        <td class="medium-text arial">
-                            Nama Ayah / Alamat Ayah
-                        </td>
-                        <td class="medium-text arial">
-                            : {{ $data->nama_ayah }} @if($data->alamat_ayah), @endif{{ $data->alamat_ayah }}
+                            {{ $data->no_paspor }}
                         </td>
                     </tr>
                     <tr>
@@ -217,10 +206,21 @@
                             8.
                         </td>
                         <td class="medium-text arial">
-                            Nama Ibu / Alamat Ibu
+                            Nama Ayah / Alamat Ayah :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nama_ibu }} @if($data->alamat_ibu), @endif{{ $data->alamat_ibu }}
+                            {{ $data->nama_ayah }} @if($data->alamat_ayah), @endif{{ $data->alamat_ayah }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="medium-text arial">
+                            8.
+                        </td>
+                        <td class="medium-text arial">
+                            Nama Ibu / Alamat Ibu :
+                        </td>
+                        <td class="medium-text arial">
+                            {{ $data->nama_ibu }} @if($data->alamat_ibu), @endif{{ $data->alamat_ibu }}
                         </td>
                     </tr>
                     <tr>
@@ -228,10 +228,10 @@
                             9.
                         </td>
                         <td class="medium-text arial">
-                            Nama Istri / Nama Suami
+                            Nama Istri / Nama Suami :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nama_istri }} @if($data->alamat_suami), @endif{{ $data->alamat_suami }}
+                            {{ $data->nama_istri }} @if($data->alamat_suami), @endif{{ $data->alamat_suami }}
                         </td>
                     </tr>
                     <tr>
@@ -239,10 +239,10 @@
                             10.
                         </td>
                         <td class="medium-text arial">
-                            Nama Anak
+                            Nama Anak :
                         </td>
                         <td class="medium-text arial">
-                            : {{ $data->nama_anak }}
+                            {{ $data->nama_anak }}
                         </td>
                     </tr>
                     <tr>
@@ -250,10 +250,10 @@
                             11.
                         </td>
                         <td class="medium-text arial">
-                            Tanda Tangan Cap Jempol
+                            Tanda Tangan Cap Jempol :
                         </td>
                         <td class="medium-text arial">
-                            : .................................................................................
+                            .................................................................................
                         </td>
                     </tr>
                 </table>
@@ -277,9 +277,7 @@
             <div class="col">
                 <p class="medium-text arial">Pemohon</p>
                 <br>
-                <br>
-                <br>
-                <p class="medium-text arial">............................</p>
+                <p class="medium-text arial">..................</p>
             </div>
         </div>
     </div>
