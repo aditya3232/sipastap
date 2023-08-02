@@ -1390,4 +1390,50 @@ class FormSkckController extends Controller
         return redirect()->route('admin.formskck.index');
     }
 
+    public function destroy($id) {
+        try {
+            $Skck = Skck::findOrFail($id);
+            
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal hapus form permohonan sim!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal hapus form permohonan sim!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal hapus form permohonan sim!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal hapus form permohonan sim!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal hapus form permohonan sim!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        try {
+            $Skck->delete();
+        
+        } catch (\Illuminate\Database\QueryException $e) {
+            Alert::error('Gagal hapus form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (ModelNotFoundException $e) {
+            Alert::error('Gagal hapus form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (\Exception $e) {
+            Alert::error('Gagal hapus form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (PDOException $e) {
+            Alert::error('Gagal hapus form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        } catch (Throwable $e) {
+            Alert::error('Gagal hapus form permohonan skck!');
+            return redirect()->route('admin.formskck.index');
+        }
+
+        Alert::success('Sukses', 'Form permohonan skck berhasil dihapus');
+        return redirect()->route('admin.formskck.index');
+
+    }
+
 }
